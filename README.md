@@ -12,7 +12,9 @@ pip install .
 
 python BLIMMP_Scripts/module_detection.py -h
 
-python META_DAWG/module_detection.py ./Examples/example.domtblout \
-	--format domtblout \
-    -c 0.5 \
-    --output example_name
+cd ..
+
+!time python BLIMMP/module_detection.py ./Examples/example.domtblout \
+  /content/2932848865.domtblout \
+  -f domtblout --sigma 1.0 --output example_name -l
+
