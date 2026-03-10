@@ -2,6 +2,8 @@
 
 conda create -n BLIMMP-test
 
+conda activate BLIMMP-test
+
 git clone this repo
 
 cd BLIMMP
