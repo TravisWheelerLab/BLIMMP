@@ -181,7 +181,7 @@ class HMMParsers:
         #print("  coverage stats:","min =", df['hmm_coverage_fraction'].min(),"max =", df['hmm_coverage_fraction'].max())
         #print("  unique (KO, target):",df[['KO id','target name']].drop_duplicates().shape[0])
 
-        df.to_csv("domtblout_with_coverage.csv")
+        #df.to_csv("domtblout_with_coverage.csv")
             
         return df
 
@@ -843,7 +843,7 @@ class CalculateModuleProbabilities:
 
         val = float(CMP._eval_ast(ast.parse(eq_clean, mode="eval"), env))
         val_clamped = max(0.0, min(1.0, val))
-        if debug: print(f"→ Result {val} (clamped {val_clamped})\n")
+        if debug: print(f"Result {val} (clamped {val_clamped})\n")
         return val_clamped
 
     @staticmethod
@@ -2108,7 +2108,7 @@ class BlimmpPipeline:
 
         best_steps_df, best_failures_df = best_paths.run_all()
 
-        best_failures_df.to_csv("best_path_fails.csv", index=False)
+        #best_failures_df.to_csv("best_path_fails.csv", index=False)
 
         steps_df   = pd.concat([steps_df_single, steps_df_multi], ignore_index=True).sort_values(["module","multiline","step"]).reset_index(drop=True)
 
@@ -2220,7 +2220,7 @@ def main():
                     for item in os.listdir(nested):
                         shutil.move(os.path.join(nested, item), extract_to)
                     os.rmdir(nested)
-                    print(f"  Flattened double-nested folder: {extract_name}/{extract_name} → {extract_name}/")
+                    print(f"  Flattened double-nested folder: {extract_name}/{extract_name} to {extract_name}/")
             os.remove(zip_path)                           
             print(f"Done. {extract_to}")
 
