@@ -24,7 +24,7 @@ setup(
         ]
     },
     include_package_data=True,
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     entry_points={
         "console_scripts": [
             "BLIMMP=BLIMMP_Scripts.module_detection:main",
