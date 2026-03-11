@@ -1,1 +1,7 @@
-include META_DAWG/Graph_Dependencies/KEGG_Graphs_Generated.zip
+include BLIMMP_Scripts/Graph_Dependencies/KEGG_Module_Graphs.zip
+include BLIMMP_Scripts/Graph_Dependencies/KEGG_Module_Equations_Jan26.json
+include BLIMMP_Scripts/Graph_Dependencies/module_ko_reaction.json
+include BLIMMP_Scripts/Graph_Dependencies/MODULE_ALL_NEIGHBOR_DATA/*
+include BLIMMP_Scripts/Data_Dependencies/ATB_Taxonomy_Frequency/*
+include BLIMMP_Scripts/Data_Dependencies/ko_list.txt
+include BLIMMP_Scripts/Data_Dependencies/module_freq.txt
