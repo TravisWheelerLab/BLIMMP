@@ -1,0 +1,7 @@
+*.csv
+*.log
+*_dk.csv
+*_paths.csv
+*_sample_modules_representation.json
+__pycache__/
+*.pyc
