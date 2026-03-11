@@ -2316,8 +2316,23 @@ def main():
             print(f"Extracting {os.path.basename(zip_path)}...")
             with zipfile.ZipFile(zip_path, 'r') as z:
                 z.extractall(extract_to)
+
+                macosx_path = os.path.join(extract_to, "__MACOSX")
+                if os.path.isdir(macosx_path):
+                    import shutil
+                    shutil.rmtree(macosx_path)
+                    print(f"Removed MACOSX metadata folder")
+
+                extract_name = os.path.basename(extract_to)
+                nested = os.path.join(extract_to, extract_name)
+                if os.path.isdir(nested):
+                    import shutil
+                    for item in os.listdir(nested):
+                        shutil.move(os.path.join(nested, item), extract_to)
+                    os.rmdir(nested)
+                    print(f"  Flattened double-nested folder: {extract_name}/{extract_name} → {extract_name}/")
             os.remove(zip_path)                           
-            print(f"  Done → {extract_to}")
+            print(f"Done. {extract_to}")
 
     paths = Paths(
         counts_dir = Path(DD)/ "ATB_Taxonomy_Frequency",
