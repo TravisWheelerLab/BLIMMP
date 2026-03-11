@@ -2048,7 +2048,7 @@ class BlimmpPipeline:
 
         #Update the Dk calculations based on the neighbors
         dk_update_calculations, used_neighbors = CalculateKOProbabilities.dk_neighbor_update(dk_calculations,neighbor_map, ko_counts, alpha=0.6, return_used=True,verbose=self.cfg.verbose)
-        print("after update max abs diff:", (dk_update_calculations["Dk_Neighbor"] - dk_update_calculations["Dk"]).abs().max())
+        #print("after update max abs diff:", (dk_update_calculations["Dk_Neighbor"] - dk_update_calculations["Dk"]).abs().max())
 
         # attach neighbor lists/counts per KO
         dk_update_calculations["KO_Neighbors"] = dk_update_calculations["KO id"].map(lambda k: ",".join(used_neighbors.get(k, [])))
