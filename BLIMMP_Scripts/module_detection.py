@@ -366,7 +366,7 @@ class File_Helpers:
             if tag != "domain_level_priors":
                 print(f"[taxonomy] Using domain-level fallbacks for '{tag}'.", file=sys.stderr)
             tag = "domain_level_priors"
-            want_counts = paths.counts_dir / f"ko_counts_ko_matrix_sampleids_{tag}.tsv"
+            want_counts = paths.counts_dir / f"ko_freq_ko_matrix_sampleids_{tag}.tsv"
             want_one    = paths.onehop_dir  / f"One_Hop_Refilled_{tag}.json"
             want_two    = paths.twohop_dir  / f"Two_Hop_Refilled_{tag}.json"
             want_all = paths.module_neighbor_dir / f"Module_AllHop_Refilled_{tag}.json"
@@ -374,7 +374,6 @@ class File_Helpers:
     
     @staticmethod
     def modules_to_kos(module_json_dir):
-        #Build KO -> comma-separated 'Mxxxxx,Myyyyy' mapping
 
         ko_to_modules: dict[str, list[str]] = {}
         pattern = os.path.join(module_json_dir, "module_*_nodes.json")
@@ -2305,14 +2304,14 @@ def main():
     
 
 
-    HERE = os.path.dirname(__file__)
+    HERE = os.path.dirname(os.path.abspath(__file__))
     GD   = os.path.join(HERE, "Graph_Dependencies")
     DD   = os.path.join(HERE, "Data_Dependencies")
 
     ZIPS_TO_EXTRACT = {os.path.join(GD, "KEGG_Graphs_Generated_Aug25.zip") : os.path.join(GD, "KEGG_Graphs_Generated_Aug25")}
 
     for zip_path, extract_to in ZIPS_TO_EXTRACT.items():
-        if os.path.isfile(zip_path):                        # zip present = first run
+        if os.path.isfile(zip_path):                   
             os.makedirs(extract_to, exist_ok=True)
             print(f"Extracting {os.path.basename(zip_path)}...")
             with zipfile.ZipFile(zip_path, 'r') as z:
@@ -2325,7 +2324,7 @@ def main():
         onehop_dir = Path(GD)/ "ONE_HOP_NEIGHBOR_DATA",
         twohop_dir = Path(GD)/ "TWO_HOP_NEIGHBOR_DATA",
         module_neighbor_dir   = Path(GD)/ "MODULE_ALL_NEIGHBOR_DATA",
-        module_eq_json = Path(GD)/ "KEGG_Module_Equations.json",
+        module_eq_json = Path(GD)/ "KEGG_Module_Equations_Jan26.json",
         module_json_dir = Path(GD)/ "KEGG_Graphs_Generated_Aug25",
         kofam_ko_list_path = Path(DD)/ "ko_list.txt",
         module_frequencies = Path(DD)/ "module_freq.txt",
