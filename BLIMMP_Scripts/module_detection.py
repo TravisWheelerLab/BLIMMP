@@ -2317,7 +2317,7 @@ def main():
             print(f"Extracting {os.path.basename(zip_path)}...")
             with zipfile.ZipFile(zip_path, 'r') as z:
                 z.extractall(extract_to)
-            os.remove(zip_path)                             # delete after extraction
+            os.remove(zip_path)                           
             print(f"  Done → {extract_to}")
 
     paths = Paths(
@@ -2332,18 +2332,6 @@ def main():
         module_reaction_dir = Path(GD)/ "module_ko_reaction.json"
     )
 
-
-    paths = Paths(
-        counts_dir=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/Bayesian Priors: ATB Analysis/ATB_Taxonomy/ATB Frequency"),
-        onehop_dir=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/KEGG_Neighbors_Generation/ONE_HOP_NEIGHBOR_DATA-2"),
-        twohop_dir=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/KEGG_Neighbors_Generation/TWO_HOP_NEIGHBOR_DATA-2"),
-        module_neighbor_dir=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/KEGG_Neighbors_Generation/MODULE_ALL_NEIGHBOR_DATA"),
-        module_eq_json=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/BLIMMP PATH Probabilities/KEGG_Module_Equations_Jan26.json"),
-        module_json_dir=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/KEGG_Graph_Generation/KEGG_Graphs_Generated_Aug25"),
-        kofam_ko_list_path=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/ko_list.txt"),
-        module_frequencies = Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/module_freq.txt"),
-        module_reaction_dir=Path("/content/drive/MyDrive/Lab Work/Bayesian_Graph_Metabolic_Paper/Reactions/module_ko_reaction.json")
-    )
 
     BlimmpPipeline(cfg, paths).run()
 
