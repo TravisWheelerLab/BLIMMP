@@ -49,8 +49,8 @@ class Paths:
 class RunConfig:
     input_file: str
     fmt: str                   # 'tbl' or 'domtblout'
-    sigma: float               # 0..1
-    taxonomy: str              # bacteria / phylum / kingdom tag
+    sigma: float               # 0 to 1
+    taxonomy: str              # bacteria or phylum or kingdom tag
     output_prefix: str
     verbose: bool = False
     logfile_path: Optional[str] = None
@@ -97,10 +97,7 @@ class HMMParsers:
         #Cols to process
         cols = ['target name', 'target_accession', 'tlen', 'query_name',
             'query_accession', 'qlen', 'full_Evalue', 'full_score',
-            'full_bias', 'n_domains', 'of_domains', 'c_Evalue',
-            'i_Evalue', 'i_score', 'i_bias', 'hmm from', 'hmm to',
-            'ali from', 'ali to', 'env from', 'env to', 'acc'
-        ]
+            'full_bias', 'n_domains', 'of_domains', 'c_Evalue', 'i_Evalue', 'i_score', 'i_bias', 'hmm from', 'hmm to', 'ali from', 'ali to', 'env from', 'env to', 'acc']
 
         usecols=[
             'target name','query_name',
@@ -110,17 +107,8 @@ class HMMParsers:
             'i_score','i_Evalue'
         ]
 
-        df = pd.read_csv(
-            path,
-            comment='#',
-            header=None,
-            names=cols,
-            usecols=list(range(22)),
-            sep= r"\s+",  
-            engine='c',
-            low_memory=False,
-            memory_map=True
-        )
+        df = pd.read_csv(path,comment='#',header=None,names=cols,
+            usecols=list(range(22)), sep= r"\s+", engine='c', low_memory=False, memory_map=True)
         
         df = df[usecols].copy()
 
@@ -158,19 +146,12 @@ class HMMParsers:
 
         df['per_hit_hmm_coverage'] = (df['hmm_span'] + 1) / df['hmm_len']
 
-        # Drop helper spans if you don't want them hanging around
         df.drop(columns=['ali_span', 'hmm_span'], inplace=True)
 
-        print("\nSTAGE 3: before union coverage")
-        print("  shape:", df.shape)
-        print("  unique (KO, target, strand):",df[['KO id','target name','strand']].drop_duplicates().shape[0])
+        #print("  shape:", df.shape)
+        #print("  unique (KO, target, strand):",df[['KO id','target name','strand']].drop_duplicates().shape[0])
 
-
-        # after building df, hmm_len, etc.
-        df['group_id'] = df.groupby(
-            ['strand', 'target name', 'KO id'], 
-            sort=False
-        ).ngroup()
+        df['group_id'] = df.groupby( ['strand', 'target name', 'KO id'], sort=False).ngroup()
 
         n_groups = df['group_id'].max() + 1
 
@@ -178,40 +159,27 @@ class HMMParsers:
         ends   = df[['hmm from', 'hmm to']].max(axis=1).to_numpy(np.int64)
         gids   = df['group_id'].to_numpy(np.int64)
 
-        order = np.lexsort((starts, gids))  # sort by gid, then start
+        order = np.lexsort((starts, gids)) 
 
         starts = starts[order]
         ends   = ends[order]
         gids   = gids[order]
 
-        # union length per group (Numba)
-        #covered_per_group = _hmm_union_len_per_group(gids, starts, ends, n_groups)
-
-        # DEBUG: verify Numba vs Python
         covered_py = _hmm_union_len_per_group_py(gids, starts, ends, n_groups)
 
-
         # hmm_len per group
-        hmm_len_per_group = (
-            df.groupby('group_id', sort=False)['hmm_len']
-            .first()
-            .to_numpy()
-        )
+        hmm_len_per_group = (df.groupby('group_id', sort=False)['hmm_len'].first().to_numpy())
 
         coverage_per_group = covered_py / hmm_len_per_group
 
-        # broadcast back
         gid_full = df['group_id'].to_numpy()
         df['hmm_covered_len']       = covered_py[gid_full]
         df['hmm_coverage_fraction'] = coverage_per_group[gid_full]
 
-        print("\nSTAGE 4: after union coverage")
-        print("  shape:", df.shape)
-        print("  coverage stats:",
-            "min =", df['hmm_coverage_fraction'].min(),
-            "max =", df['hmm_coverage_fraction'].max())
-        print("  unique (KO, target):",
-            df[['KO id','target name']].drop_duplicates().shape[0])
+        #print("\nSTAGE 4: after union coverage")
+        #print("  shape:", df.shape)
+        #print("  coverage stats:","min =", df['hmm_coverage_fraction'].min(),"max =", df['hmm_coverage_fraction'].max())
+        #print("  unique (KO, target):",df[['KO id','target name']].drop_duplicates().shape[0])
 
         df.to_csv("domtblout_with_coverage.csv")
             
@@ -255,12 +223,12 @@ def _assign_groups_numba(starts, ends, frac_thresh):
 class Overlap:
     @staticmethod
     def cluster_strand(df, from_col="ali from", to_col="ali to", frac_thresh=0.6):
-        # compute strand-agnostic interval endpoints
+        # compute strand agnostic interval endpoints
         starts = df[[from_col, to_col]].min(axis=1).to_numpy(dtype=np.float64)
         ends   = df[[from_col, to_col]].max(axis=1).to_numpy(dtype=np.float64)
         orig_idx = df.index.to_numpy()
 
-        # sort by start (stable)
+        # sort by start
         order = np.argsort(starts, kind="mergesort")
         starts = starts[order]; ends = ends[order]; orig_idx = orig_idx[order]
 
@@ -283,11 +251,7 @@ class Overlap:
             out.append(sub)
 
         result = pd.concat(out).sort_index()
-        result["overlap_group"] = (
-            result["target name"].astype(str)
-            + "_" + result["grp_id"].astype(str)
-            + "_" + result["strand"].astype(str)
-        )
+        result["overlap_group"] = (result["target name"].astype(str)+ "_" + result["grp_id"].astype(str)+ "_" + result["strand"].astype(str))
         return result
 
 
@@ -297,13 +261,7 @@ class File_Helpers:
         if not os.path.exists(kofampath):
             raise ImportError(f"KOfam DB file not found: {kofampath}")
 
-        df = pd.read_csv(
-        kofampath,
-        sep=r"\s+",
-        header=None,
-        skiprows=1,
-        usecols=[0, 1, 2],
-        names=['KO id', 'kofam_score_threshold', 'score_type'])
+        df = pd.read_csv(kofampath, sep=r"\s+", header=None, skiprows=1,usecols=[0, 1, 2],names=['KO id', 'kofam_score_threshold', 'score_type'])
 
         if df.shape[1] < 2:
             raise ValueError(f"KOfam file {kofampath} has <2 columns; can't parse thresholds.")
@@ -315,14 +273,8 @@ class File_Helpers:
         if 'score_type' not in df.columns:
             df['score_type'] = 'full'
         else:
-            df['score_type'] = (
-                df['score_type']
-                .fillna('full')
-                .astype(str).str.strip().str.lower()
-            )
+            df['score_type'] = (df['score_type'].fillna('full').astype(str).str.strip().str.lower())
             df.loc[~df['score_type'].isin(['full', 'domain']), 'score_type'] = 'full'
-
-        
         return dict(zip(df['KO id'], zip(df['kofam_score_threshold'], df['score_type'])))
     
     @staticmethod
@@ -380,12 +332,11 @@ class File_Helpers:
 
         for filepath in glob.glob(pattern):
             filename = os.path.basename(filepath)                          
-            module_name = filename.replace("_nodes.json", "").replace("module_", "")  # like 'M00001'
+            module_name = filename.replace("_nodes.json", "").replace("module_", "")  # 'M00001'
 
             with open(filepath, "r") as f:
-                module_nodes = json.load(f)                                 # list of node ids
+                module_nodes = json.load(f) # list of node ids
 
-            # Node names that start with K; keep KO part before first underscore
             module_kos = {n.split("_", 1)[0] for n in module_nodes if isinstance(n, str) and n.startswith("K")}
 
             for ko in module_kos:
@@ -461,10 +412,7 @@ class PositionScores:
         # Pick the max-confidence row per overlap_group
         idx = (df.groupby('overlap_group')['hit_conf'].idxmax().dropna().astype(int))
         winners = df.loc[idx, ['overlap_group', 'KO id', 'score', 'hit_conf']].rename(
-        columns={
-            'KO id': 'overlapgroup_winner',
-            'score': 'overlapgroup_winner_score',
-            'hit_conf': 'overlapgroup_winner_hit_conf'})
+        columns={'KO id': 'overlapgroup_winner','score': 'overlapgroup_winner_score','hit_conf': 'overlapgroup_winner_hit_conf'})
         return winners.loc[idx].reset_index(drop=True)
     
     @staticmethod
@@ -477,8 +425,6 @@ class PositionScores:
 
         #Merge the kofam score threshold here
         kofam_map = None
-
-        #To add: 
 
         try:
             # load_kofamdb_file
@@ -875,7 +821,7 @@ class CalculateModuleProbabilities:
 
     @staticmethod
     def _normalize_equation(eq):
-        # Replace any Kxxxxx_suffix with plain Kxxxxx (e.g., K00844_xyz -> K00844)
+        # Replace any Kxxxxx_suffix with plain 
         return CalculateModuleProbabilities.KO_TOKEN_EXTRACT.sub(
             lambda m: f"K{m.group(1)}", eq
         )
@@ -917,10 +863,7 @@ class CalculateModuleProbabilities:
         return Dk, Dk_Neighbor
 
     @staticmethod
-    def evaluate_step_probabilities(module_dict: dict,
-                                   df: pd.DataFrame,
-                                   before_col: str = "Dk",
-                                   after_col: str = "Dk_Neighbor",  verbose: bool = False) -> pd.DataFrame:
+    def evaluate_step_probabilities(module_dict: dict, df: pd.DataFrame,before_col: str = "Dk", after_col: str = "Dk_Neighbor",  verbose: bool = False):
         CMP = CalculateModuleProbabilities
         Dk, Dk_Neighbor = CMP.build_dk_maps_from_df(df, before_col, after_col)
 
@@ -941,8 +884,6 @@ class CalculateModuleProbabilities:
                 logm(logging.DEBUG, mod_id, "module_equation=%s", mod_eq)
                 logm(logging.DEBUG, mod_id, "n_steps=%d", len(steps))
 
-
-
             # Step-level
             for s in steps:
                 idx = int(s["step"])
@@ -951,7 +892,6 @@ class CalculateModuleProbabilities:
                 p_b = CMP.eval_equation(eqn, Dk)
                 p_a = CMP.eval_equation(eqn, Dk_Neighbor)
 
-                # --- Extract KO IDs from equation (simple regex) ---
                 kos_in_eq = sorted(set(re.findall(r"K\d{5}", eqn)))
 
 
@@ -974,8 +914,7 @@ class CalculateModuleProbabilities:
                     logm(logging.DEBUG, mod_id, "step=%d equation=%s", idx, eqn)
                     logm(logging.DEBUG, mod_id, "step=%d kos=%s", idx, ",".join(kos_in_eq))
                     for ko in kos_in_eq:
-                        logmk(logging.DEBUG, mod_id, ko, "step=%d Dk=%.4f Dk_Neighbor=%.4f",
-                            idx, Dk.get(ko, 0.0), Dk_Neighbor.get(ko, 0.0))
+                        logmk(logging.DEBUG, mod_id, ko, "step=%d Dk=%.4f Dk_Neighbor=%.4f",idx, Dk.get(ko, 0.0), Dk_Neighbor.get(ko, 0.0))
                     logm(logging.DEBUG, mod_id, "step=%d p_before=%.6f p_after=%.6f", idx, p_b, p_a)
 
 
@@ -1108,7 +1047,7 @@ class CalculateModuleProbabilities:
         df: pd.DataFrame,
         before_col: str = "Dk",
         after_col: str = "Dk_Neighbor",
-        step_format: str = "path.step",   # "path.step" or "path_step"
+        step_format: str = "path.step",  
         verbose: bool = False
     ) -> pd.DataFrame:
         CMP = CalculateModuleProbabilities
@@ -1197,17 +1136,7 @@ class CalculateModuleProbabilities:
         default_beta_thresh: float = 0.65,
         verbose: bool = False
     ) -> pd.DataFrame:
-        """
-        Input:
-        multiline_steps_df from evaluate_multiline_step_probabilities()
 
-        Output:
-        modules_df rows for multiline modules with SAME columns as calculate_module_confidence:
-            module, module_equation, n_steps, E_before, E_after, module_frequency,
-            module_probability_before, module_probability_after
-
-        BUT E_before/E_after/n_steps correspond to the WINNING PATH (max conf_after).
-        """
         CMP = CalculateModuleProbabilities
         if module_frequencies is None:
             module_frequencies = {}
@@ -1218,7 +1147,6 @@ class CalculateModuleProbabilities:
                 "module_frequency","module_probability_before","module_probability_after"
             ])
 
-        # ---- parse "step" label into path + step_idx ----
         def _parse_path(step_label):
             if isinstance(step_label, str) and "." in step_label:
                 a, _ = step_label.split(".", 1)
@@ -1265,7 +1193,6 @@ class CalculateModuleProbabilities:
                     "conf_after": conf_after,
                 })
                 if verbose:
-                    #logging.getLogger().info(f"--- Module {mod_id} ---")
                     logging.debug(
                         "[PATH] module=%s path=%s n_steps=%d",
                         mod_id, path_id, n_steps
@@ -1306,17 +1233,6 @@ class CalculateModuleProbabilities:
 
 
 class ModuleBestPath:
-    """
-    Semantic inverse + best-path evaluator for BLIMMP step equations.
-
-    - Inverts the exact serialization produced by to_symbolic_plain
-    - Builds a semantic AST (KO / AND / OR)
-    - Evaluates best-path score + KO set
-    """
-
-    # -------------------------
-    # Internal semantic AST
-    # -------------------------
 
     class _Node: pass
 
@@ -1332,9 +1248,6 @@ class ModuleBestPath:
         def __init__(self, kids: List["_Node"]):
             self.kids = kids
 
-    # -------------------------
-    # Construction
-    # -------------------------
 
     def __init__(
         self,
@@ -1355,10 +1268,6 @@ class ModuleBestPath:
             keep=keep_duplicate_kos,
         )
 
-
-    # -------------------------
-    # Public API
-    # -------------------------
 
     def run_all(self):
         rows = []
@@ -1413,10 +1322,6 @@ class ModuleBestPath:
 
         return pd.DataFrame(rows), pd.DataFrame(failures)
 
-    # ============================================================
-    # ==========  Semantic inverse of to_symbolic_plain ==========
-    # ============================================================
-
     _KO_RE = re.compile(r"K\d{5}")
 
     def _parse_step_equation(self, expr: str) -> "_Node":
@@ -1427,7 +1332,7 @@ class ModuleBestPath:
         if self._KO_RE.fullmatch(s):
             return self._KO(s)
 
-        # max(A,B,...)  → OR
+        # max(A,B,...)  OR
         if s.startswith("max(") and s.endswith(")"):
             inner = s[4:-1]
             parts = self._split_top_level(inner, ",")
@@ -1451,10 +1356,6 @@ class ModuleBestPath:
             return self._AND([self._parse_step_equation(p) for p in parts])
 
         raise ValueError(f"Unrecognized step equation format: {s}")
-
-    # -------------------------
-    # String helpers
-    # -------------------------
 
     def _unwrap_parens(self, s: str) -> str:
         s = s.strip()
@@ -1491,9 +1392,6 @@ class ModuleBestPath:
             parts.append(tail)
         return parts
 
-    # ============================================================
-    # ==================== Best-path evaluation ==================
-    # ============================================================
     def _tie_score(self, kos: Set[str]) -> float:
         # Use max score among KOs used in that branch (usually 1 KO)
         best = float("-inf")
@@ -1542,10 +1440,6 @@ class ModuleBestPath:
 
 
         raise TypeError(type(node))
-
-    # ============================================================
-    # ===================== KO probability map ===================
-    # ============================================================
 
     def _build_pko_and_score(
         self,
@@ -1640,10 +1534,6 @@ class ModuleBestPath:
                 })
 
         return pd.DataFrame(module_best_rows)
-
-
-
-
 
 
 class FileWriters:
