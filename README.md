@@ -1,6 +1,6 @@
 # BLIMMP
 
-conda create -n BLIMMP-test
+conda create -n BLIMMP-test python=3.10 -y
 
 conda activate BLIMMP-test
 
