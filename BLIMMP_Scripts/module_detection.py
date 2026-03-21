@@ -43,6 +43,7 @@ class Paths:
     kofam_ko_list_path: Path
     module_frequencies: Path
     module_reaction_dir: Path
+    module_descriptions_path: Path
 
 
 @dataclass(frozen=True)
@@ -369,6 +370,24 @@ class File_Helpers:
                 rxns.add(r)
 
         return ",".join(sorted(rxns))
+    
+    @staticmethod
+    def load_module_descriptions(module_descriptions_path) -> Dict[str, str]:
+        desc_path = str(module_descriptions_path)
+        if not os.path.exists(desc_path):
+            logging.warning("Module descriptions file not found: %s — skipping.", desc_path)
+            return {}
+        with open(desc_path, "r", encoding="utf-8") as fh:
+            raw = json.load(fh)
+        module_desc: Dict[str, str] = {}
+        for category, modules in raw.items():
+            if not isinstance(modules, dict):
+                continue
+            for mod_id, info in modules.items():
+                if isinstance(info, dict) and "Description" in info:
+                    module_desc[mod_id] = info["Description"]
+        logging.info("Loaded %d module descriptions from %s", len(module_desc), desc_path)
+        return module_desc
 
 
   
@@ -1604,6 +1623,7 @@ class FileWriters:
         FileWriters.ensure_dir(steps_csv_path)
         rename_step_prob = {
             "module": "module",
+            "module_description": "module_description",
             "step": "step_id",
             "p_after": "step_probability", #
             "equation": "equation",
@@ -1626,6 +1646,7 @@ class FileWriters:
 
         rename_module_prob = {
             "module": "module",
+            "module_description": "module_description",
             "module_frequency": "module_frequency",
             "n_steps": "num_steps",
             "E_before": "num_steps_present_raw",
@@ -2131,6 +2152,11 @@ class BlimmpPipeline:
         modules_df = modules_df.merge(module_best_df, on="module", how="left")
         print(modules_df.columns)
         modules_df["module_best_path_reactions"] = modules_df.apply(lambda row: File_Helpers.reactions_for_module_bestpath(module_reaction_map, row["module"], row["module_best_path_kos"]),axis=1)
+        # Load module descriptions and add to steps_df and modules_df
+        module_descriptions = File_Helpers.load_module_descriptions(self.paths.module_descriptions_path)
+        steps_df["module_description"] = steps_df["module"].map(module_descriptions).fillna("")
+        modules_df["module_description"] = modules_df["module"].map(module_descriptions).fillna("")
+        
         #Write files
         FileWriters.write_csv_outputs(dk_update_calculations,steps_df,modules_df,self.cfg.output_prefix,basename="BLIMMP")
         #FileWriters.write_module_json(dk_update_calculations,modules_df,self.cfg.output_prefix,basename="BLIMMP")
@@ -2233,7 +2259,8 @@ def main():
         module_json_dir = Path(GD)/ "KEGG_Graphs_Generated_March26",
         kofam_ko_list_path = Path(DD)/ "ko_list.txt",
         module_frequencies = Path(DD)/ "module_freq.txt",
-        module_reaction_dir = Path(GD)/ "module_ko_reaction.json"
+        module_reaction_dir = Path(GD)/ "module_ko_reaction.json",
+        module_descriptions_path = Path(DD)/ "kegg_bacteria_modules.json"
     )
 
 
