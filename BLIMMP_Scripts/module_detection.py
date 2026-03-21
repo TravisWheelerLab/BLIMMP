@@ -2198,7 +2198,7 @@ def main():
     GD   = os.path.join(HERE, "Graph_Dependencies")
     DD   = os.path.join(HERE, "Data_Dependencies")
 
-    ZIPS_TO_EXTRACT = {os.path.join(GD, "KEGG_Graphs_Generated_Aug25.zip") : os.path.join(GD, "KEGG_Graphs_Generated_Aug25")}
+    ZIPS_TO_EXTRACT = {os.path.join(GD, "KEGG_Graphs_Generated_March26.zip") : os.path.join(GD, "KEGG_Graphs_Generated_March26")}
 
     for zip_path, extract_to in ZIPS_TO_EXTRACT.items():
         if os.path.isfile(zip_path):                   
