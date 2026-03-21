@@ -2230,7 +2230,7 @@ def main():
         twohop_dir = Path(GD)/ "TWO_HOP_NEIGHBOR_DATA",
         module_neighbor_dir   = Path(GD)/ "MODULE_ALL_NEIGHBOR_DATA",
         module_eq_json = Path(GD)/ "KEGG_Module_Equations_Jan26.json",
-        module_json_dir = Path(GD)/ "KEGG_Graphs_Generated_Aug25",
+        module_json_dir = Path(GD)/ "KEGG_Graphs_Generated_March26",
         kofam_ko_list_path = Path(DD)/ "ko_list.txt",
         module_frequencies = Path(DD)/ "module_freq.txt",
         module_reaction_dir = Path(GD)/ "module_ko_reaction.json"
