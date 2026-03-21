@@ -1,0 +1,3654 @@
+{
+  "Central carbohydrate metabolism": {
+    "M00001": {
+      "Description": "Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate",
+      "Ani": 723,
+      "Pla": 166,
+      "Fun": 194,
+      "Pro": 54,
+      "Bac": 5382,
+      "Arc": 123,
+      "Vir": null
+    },
+    "M00002": {
+      "Description": "Glycolysis, core module involving three-carbon compounds",
+      "Ani": 729,
+      "Pla": 167,
+      "Fun": 194,
+      "Pro": 59,
+      "Bac": 8347,
+      "Arc": 326,
+      "Vir": null
+    },
+    "M00003": {
+      "Description": "Gluconeogenesis, oxaloacetate => fructose-6P",
+      "Ani": 714,
+      "Pla": 163,
+      "Fun": 182,
+      "Pro": 22,
+      "Bac": 5646,
+      "Arc": 173,
+      "Vir": null
+    },
+    "M00307": {
+      "Description": "Pyruvate oxidation, pyruvate => acetyl-CoA",
+      "Ani": 723,
+      "Pla": 171,
+      "Fun": 171,
+      "Pro": 48,
+      "Bac": 8712,
+      "Arc": 402,
+      "Vir": null
+    },
+    "M00009": {
+      "Description": "Citrate cycle (TCA cycle, Krebs cycle)",
+      "Ani": 602,
+      "Pla": 81,
+      "Fun": 155,
+      "Pro": 4,
+      "Bac": 2765,
+      "Arc": 10,
+      "Vir": null
+    },
+    "M00010": {
+      "Description": "Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate",
+      "Ani": 710,
+      "Pla": 165,
+      "Fun": 185,
+      "Pro": 52,
+      "Bac": 7281,
+      "Arc": 197,
+      "Vir": null
+    },
+    "M00011": {
+      "Description": "Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate",
+      "Ani": 632,
+      "Pla": 85,
+      "Fun": 160,
+      "Pro": 5,
+      "Bac": 2989,
+      "Arc": 11,
+      "Vir": null
+    },
+    "M00004": {
+      "Description": "Pentose phosphate pathway (Pentose phosphate cycle)",
+      "Ani": 699,
+      "Pla": 166,
+      "Fun": 172,
+      "Pro": 23,
+      "Bac": 4894,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00006": {
+      "Description": "Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P",
+      "Ani": 731,
+      "Pla": 168,
+      "Fun": 191,
+      "Pro": 51,
+      "Bac": 5507,
+      "Arc": 12,
+      "Vir": null
+    },
+    "M00007": {
+      "Description": "Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P",
+      "Ani": 716,
+      "Pla": 170,
+      "Fun": 177,
+      "Pro": 32,
+      "Bac": 7763,
+      "Arc": 46,
+      "Vir": null
+    },
+    "M00580": {
+      "Description": "Pentose phosphate pathway, archaea, fructose 6P => ribose 5P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 469,
+      "Arc": 276,
+      "Vir": null
+    },
+    "M00005": {
+      "Description": "PRPP biosynthesis, ribose 5P => PRPP",
+      "Ani": 746,
+      "Pla": 171,
+      "Fun": 190,
+      "Pro": 66,
+      "Bac": 9021,
+      "Arc": 433,
+      "Vir": null
+    },
+    "M00008": {
+      "Description": "Entner-Doudoroff pathway, glucose-6P => glyceraldehyde-3P + pyruvate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2601,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00308": {
+      "Description": "Semi-phosphorylative Entner-Doudoroff pathway, gluconate => glycerate-3P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": 68,
+      "Vir": null
+    }
+  },
+  "Other carbohydrate metabolism": {
+    "M00631": {
+      "Description": "D-Galacturonate degradation (bacteria), D-galacturonate => pyruvate + D-glyceraldehyde 3P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1027,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00061": {
+      "Description": "D-Glucuronate degradation, D-glucuronate => pyruvate + D-glyceraldehyde 3P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1469,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00632": {
+      "Description": "Galactose degradation, Leloir pathway, galactose => alpha-D-glucose-1P",
+      "Ani": 653,
+      "Pla": 1,
+      "Fun": 152,
+      "Pro": null,
+      "Bac": 3126,
+      "Arc": 9,
+      "Vir": null
+    },
+    "M00552": {
+      "Description": "D-galactonate degradation, De Ley-Doudoroff pathway, D-galactonate => glycerate-3P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1169,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00550": {
+      "Description": "Ascorbate degradation, ascorbate => D-xylulose-5P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 659,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00854": {
+      "Description": "Glycogen biosynthesis, glucose-1P => glycogen/starch",
+      "Ani": 609,
+      "Pla": 167,
+      "Fun": 166,
+      "Pro": 2,
+      "Bac": 4207,
+      "Arc": 29,
+      "Vir": null
+    },
+    "M00855": {
+      "Description": "Glycogen degradation, glycogen => glucose-6P",
+      "Ani": 726,
+      "Pla": null,
+      "Fun": 173,
+      "Pro": 13,
+      "Bac": 1481,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00565": {
+      "Description": "Trehalose biosynthesis, D-glucose 1P => trehalose",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 671,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00012": {
+      "Description": "Glyoxylate cycle",
+      "Ani": 4,
+      "Pla": 154,
+      "Fun": 182,
+      "Pro": 8,
+      "Bac": 3573,
+      "Arc": 42,
+      "Vir": null
+    },
+    "M00373": {
+      "Description": "Ethylmalonyl pathway",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 155,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00741": {
+      "Description": "Propanoyl-CoA metabolism, propanoyl-CoA => succinyl-CoA",
+      "Ani": 514,
+      "Pla": 3,
+      "Fun": 1,
+      "Pro": 16,
+      "Bac": 1529,
+      "Arc": 145,
+      "Vir": null
+    },
+    "M00982": {
+      "Description": "Methylcitrate cycle",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 873,
+      "Arc": 7,
+      "Vir": null
+    },
+    "M00968": {
+      "Description": "Pentose bisphosphate pathway (nucleoside degradation), archaea, nucleoside/NMP => 3-PGA/glycerone phosphate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": 228,
+      "Vir": null
+    }
+  },
+  "Carbon fixation": {
+    "M00165": {
+      "Description": "Reductive pentose phosphate cycle (Calvin cycle)",
+      "Ani": null,
+      "Pla": 140,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 458,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00168": {
+      "Description": "CAM (Crassulacean acid metabolism), dark",
+      "Ani": null,
+      "Pla": 171,
+      "Fun": null,
+      "Pro": 9,
+      "Bac": 4061,
+      "Arc": 226,
+      "Vir": null
+    },
+    "M00169": {
+      "Description": "CAM (Crassulacean acid metabolism), light",
+      "Ani": 1,
+      "Pla": 166,
+      "Fun": null,
+      "Pro": 5,
+      "Bac": 1409,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00173": {
+      "Description": "Reductive citrate cycle (Arnon-Buchanan cycle)",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 23,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00376": {
+      "Description": "3-Hydroxypropionate bi-cycle",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00377": {
+      "Description": "Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 72,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00579": {
+      "Description": "Phosphate acetyltransferase-acetate kinase pathway, acetyl-CoA => acetate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6153,
+      "Arc": 27,
+      "Vir": null
+    }
+  },
+  "Methane metabolism": {
+    "M00358": {
+      "Description": "Coenzyme M biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": 56,
+      "Vir": null
+    },
+    "M00174": {
+      "Description": "Methane oxidation, methanotroph, methane => formaldehyde",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 53,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00346": {
+      "Description": "Formaldehyde assimilation, serine pathway",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 63,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00345": {
+      "Description": "Formaldehyde assimilation, ribulose monophosphate pathway",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 664,
+      "Arc": 4,
+      "Vir": null
+    },
+    "M00378": {
+      "Description": "F420 biosynthesis, archaea",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": 272,
+      "Vir": null
+    },
+    "M00422": {
+      "Description": "Acetyl-CoA pathway, CO2 => acetyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": 103,
+      "Vir": null
+    }
+  },
+  "Nitrogen metabolism": {
+    "M00175": {
+      "Description": "Nitrogen fixation, nitrogen => ammonia",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 814,
+      "Arc": 73,
+      "Vir": null
+    },
+    "M00531": {
+      "Description": "Assimilatory nitrate reduction, nitrate => ammonia",
+      "Ani": null,
+      "Pla": 168,
+      "Fun": 98,
+      "Pro": 5,
+      "Bac": 1708,
+      "Arc": 60,
+      "Vir": null
+    },
+    "M00530": {
+      "Description": "Dissimilatory nitrate reduction, nitrate => ammonia",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1547,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00529": {
+      "Description": "Denitrification, nitrate => nitrogen",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 333,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00528": {
+      "Description": "Nitrification, ammonia => nitrite",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 45,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00804": {
+      "Description": "Complete nitrification, comammox, ammonia => nitrite => nitrate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00973": {
+      "Description": "Anammox, nitrite + ammonia => nitrogen",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Sulfur metabolism": {
+    "M00176": {
+      "Description": "Assimilatory sulfate reduction, sulfate => H2S",
+      "Ani": null,
+      "Pla": 1,
+      "Fun": 165,
+      "Pro": 3,
+      "Bac": 3093,
+      "Arc": 21,
+      "Vir": null
+    },
+    "M00596": {
+      "Description": "Dissimilatory sulfate reduction, sulfate => H2S",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 143,
+      "Arc": 5,
+      "Vir": null
+    },
+    "M00595": {
+      "Description": "Sulfur oxidation, SOX system, thiosulfate => sulfate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 557,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00984": {
+      "Description": "Sulfur oxidation, tetrathionate intermediate (S4I) pathway, thiosulfate => sulfur + sulfate + thiosulfate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 17,
+      "Arc": 22,
+      "Vir": null
+    },
+    "M00986": {
+      "Description": "Sulfur reduction, sulfur => sulfide",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 177,
+      "Arc": 167,
+      "Vir": null
+    },
+    "M00985": {
+      "Description": "Sulfide oxidation, sulfide => sulfur",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 386,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00990": {
+      "Description": "Dimethylsulfoniopropionate (DMSP) degradation, demethylation pathway, DMSP => methanethiol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 23,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00991": {
+      "Description": "Dimethylsulfoniopropionate (DMSP) degradation, cleavage pathway, DMSP => acetyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 32,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00992": {
+      "Description": "Dimethylsulfoniopropionate (DMSP) degradation, cleavage pathway, DMSP => acrylate => acetyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00993": {
+      "Description": "Dimethylsulfoniopropionate (DMSP) degradation, cleavage pathway, DMSP => propionyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Photosynthesis": {
+    "M00161": {
+      "Description": "Photosystem II",
+      "Ani": null,
+      "Pla": 125,
+      "Fun": null,
+      "Pro": 1,
+      "Bac": 180,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00163": {
+      "Description": "Photosystem I",
+      "Ani": null,
+      "Pla": 121,
+      "Fun": null,
+      "Pro": 1,
+      "Bac": 187,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00597": {
+      "Description": "Anoxygenic photosystem II",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 219,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00598": {
+      "Description": "Anoxygenic photosystem I",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 15,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "ATP synthesis": {
+    "M00144": {
+      "Description": "NADH:quinone oxidoreductase, prokaryotes",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4540,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00145": {
+      "Description": "NAD(P)H:quinone oxidoreductase, chloroplasts and cyanobacteria",
+      "Ani": null,
+      "Pla": 112,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 188,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00149": {
+      "Description": "Succinate dehydrogenase, prokaryotes",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4522,
+      "Arc": 224,
+      "Vir": null
+    },
+    "M00150": {
+      "Description": "Fumarate reductase, prokaryotes",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 986,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00162": {
+      "Description": "Cytochrome b6f complex",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 63,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00151": {
+      "Description": "Cytochrome bc1 complex respiratory unit",
+      "Ani": 417,
+      "Pla": 80,
+      "Fun": 28,
+      "Pro": 12,
+      "Bac": 4771,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00155": {
+      "Description": "Cytochrome c oxidase, prokaryotes",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2695,
+      "Arc": 102,
+      "Vir": null
+    },
+    "M00153": {
+      "Description": "Cytochrome bd ubiquinol oxidase",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1736,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00417": {
+      "Description": "Cytochrome o ubiquinol oxidase",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2322,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00416": {
+      "Description": "Cytochrome aa3-600 menaquinol oxidase",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 520,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00156": {
+      "Description": "Cytochrome c oxidase, cbb3-type",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2402,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00157": {
+      "Description": "F-type ATPase, prokaryotes and chloroplasts",
+      "Ani": null,
+      "Pla": 120,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8227,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00159": {
+      "Description": "V/A-type ATPase, prokaryotes",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 285,
+      "Arc": 320,
+      "Vir": null
+    }
+  },
+  "Lipid metabolism": {
+    "M00088": {
+      "Description": "Ketone body biosynthesis, acetyl-CoA => acetoacetate/3-hydroxybutyrate/acetone",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 10,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00098": {
+      "Description": "Acylglycerol degradation",
+      "Ani": 718,
+      "Pla": 169,
+      "Fun": 179,
+      "Pro": 14,
+      "Bac": 337,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00091": {
+      "Description": "Phosphatidylcholine (PC) biosynthesis, PE => PC",
+      "Ani": 483,
+      "Pla": 3,
+      "Fun": 186,
+      "Pro": 23,
+      "Bac": 1320,
+      "Arc": 36,
+      "Vir": null
+    },
+    "M00093": {
+      "Description": "Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE",
+      "Ani": null,
+      "Pla": null,
+      "Fun": 179,
+      "Pro": null,
+      "Bac": 6270,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Fatty acid metabolism": {
+    "M00082": {
+      "Description": "Fatty acid biosynthesis, initiation",
+      "Ani": 697,
+      "Pla": 168,
+      "Fun": 183,
+      "Pro": 21,
+      "Bac": 6471,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00083": {
+      "Description": "Fatty acid biosynthesis, elongation",
+      "Ani": 712,
+      "Pla": 170,
+      "Fun": 186,
+      "Pro": 30,
+      "Bac": 7626,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00086": {
+      "Description": "beta-Oxidation, acyl-CoA synthesis",
+      "Ani": 749,
+      "Pla": 172,
+      "Fun": 198,
+      "Pro": 68,
+      "Bac": 7149,
+      "Arc": 236,
+      "Vir": null
+    },
+    "M00087": {
+      "Description": "beta-Oxidation",
+      "Ani": 745,
+      "Pla": 168,
+      "Fun": 53,
+      "Pro": 25,
+      "Bac": 3469,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00885": {
+      "Description": "Meromycolic acid biosynthesis, initiation and elongation FAS II (KasA)",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 178,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00886": {
+      "Description": "Meromycolic acid biosynthesis, initiation and elongation FAS II (KasA and KasB)",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 83,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00887": {
+      "Description": "Mycolic acid biosynthesis, meromycolic acid + alpha-carboxyacyl-CoA + trehalose => TMM => TDM/mAGP/GMM",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 394,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Purine metabolism": {
+    "M00048": {
+      "Description": "De novo purine biosynthesis, PRPP + glutamine => IMP",
+      "Ani": 601,
+      "Pla": 146,
+      "Fun": 132,
+      "Pro": 1,
+      "Bac": 7795,
+      "Arc": 233,
+      "Vir": null
+    },
+    "M00049": {
+      "Description": "Adenine ribonucleotide biosynthesis, IMP => ADP,ATP",
+      "Ani": 733,
+      "Pla": 156,
+      "Fun": 178,
+      "Pro": 53,
+      "Bac": 7708,
+      "Arc": 407,
+      "Vir": null
+    },
+    "M00050": {
+      "Description": "Guanine ribonucleotide biosynthesis, IMP => GDP,GTP",
+      "Ani": 721,
+      "Pla": 166,
+      "Fun": 176,
+      "Pro": 54,
+      "Bac": 7690,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00053": {
+      "Description": "Deoxyribonucleotide biosynthesis, ADP/GDP/CDP/UDP => dATP/dGTP/dCTP/dUTP",
+      "Ani": 737,
+      "Pla": 172,
+      "Fun": 190,
+      "Pro": 52,
+      "Bac": 6731,
+      "Arc": 114,
+      "Vir": null
+    },
+    "M00958": {
+      "Description": "Adenine ribonucleotide degradation, AMP => Urate",
+      "Ani": 701,
+      "Pla": null,
+      "Fun": 41,
+      "Pro": 9,
+      "Bac": 2694,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00959": {
+      "Description": "Guanine ribonucleotide degradation, GMP => Urate",
+      "Ani": 676,
+      "Pla": null,
+      "Fun": 17,
+      "Pro": 4,
+      "Bac": 2112,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00546": {
+      "Description": "Purine degradation, xanthine => urea",
+      "Ani": 220,
+      "Pla": null,
+      "Fun": null,
+      "Pro": 1,
+      "Bac": 489,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Pyrimidine metabolism": {
+    "M00051": {
+      "Description": "De novo pyrimidine biosynthesis, glutamine (+ PRPP) => UMP",
+      "Ani": 678,
+      "Pla": 2,
+      "Fun": 146,
+      "Pro": 5,
+      "Bac": 1226,
+      "Arc": 305,
+      "Vir": null
+    },
+    "M00052": {
+      "Description": "Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP",
+      "Ani": 737,
+      "Pla": 171,
+      "Fun": 180,
+      "Pro": 59,
+      "Bac": 7834,
+      "Arc": 416,
+      "Vir": null
+    },
+    "M00938": {
+      "Description": "Pyrimidine deoxyribonucleotide biosynthesis, UDP => dTTP",
+      "Ani": 651,
+      "Pla": 165,
+      "Fun": 150,
+      "Pro": 50,
+      "Bac": 4942,
+      "Arc": 72,
+      "Vir": null
+    },
+    "M00046": {
+      "Description": "Pyrimidine degradation, uracil => beta-alanine, thymine => 3-aminoisobutanoate",
+      "Ani": 709,
+      "Pla": 161,
+      "Fun": null,
+      "Pro": 5,
+      "Bac": 1060,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00939": {
+      "Description": "Pyrimidine degradation, uracil => 3-hydroxypropanoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 367,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Serine and threonine metabolism": {
+    "M00020": {
+      "Description": "Serine biosynthesis, glycerate-3P => serine",
+      "Ani": 695,
+      "Pla": 166,
+      "Fun": 133,
+      "Pro": 9,
+      "Bac": 5242,
+      "Arc": 20,
+      "Vir": null
+    },
+    "M00018": {
+      "Description": "Threonine biosynthesis, aspartate => homoserine => threonine",
+      "Ani": null,
+      "Pla": 165,
+      "Fun": 174,
+      "Pro": 4,
+      "Bac": 7123,
+      "Arc": 264,
+      "Vir": null
+    },
+    "M00621": {
+      "Description": "Glycine cleavage system",
+      "Ani": 704,
+      "Pla": 169,
+      "Fun": 176,
+      "Pro": 30,
+      "Bac": 6554,
+      "Arc": 180,
+      "Vir": null
+    },
+    "M00555": {
+      "Description": "Betaine biosynthesis, choline => betaine",
+      "Ani": 521,
+      "Pla": 156,
+      "Fun": 1,
+      "Pro": 6,
+      "Bac": 2382,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00975": {
+      "Description": "Betaine degradation, bacteria, betaine => pyruvate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 688,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00033": {
+      "Description": "Ectoine biosynthesis, aspartate => ectoine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1122,
+      "Arc": 15,
+      "Vir": null
+    },
+    "M00919": {
+      "Description": "Ectoine degradation, ectoine => aspartate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 373,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Cysteine and methionine metabolism": {
+    "M00021": {
+      "Description": "Cysteine biosynthesis, serine => cysteine",
+      "Ani": null,
+      "Pla": 172,
+      "Fun": 1,
+      "Pro": 22,
+      "Bac": 6643,
+      "Arc": 156,
+      "Vir": null
+    },
+    "M00338": {
+      "Description": "Cysteine biosynthesis, homocysteine + serine => cysteine",
+      "Ani": 734,
+      "Pla": 2,
+      "Fun": 177,
+      "Pro": 13,
+      "Bac": 1398,
+      "Arc": 19,
+      "Vir": null
+    },
+    "M00609": {
+      "Description": "Cysteine biosynthesis, methionine => cysteine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 299,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00017": {
+      "Description": "Methionine biosynthesis, aspartate => homoserine => methionine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": 126,
+      "Pro": 1,
+      "Bac": 2958,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00034": {
+      "Description": "Methionine salvage pathway",
+      "Ani": 460,
+      "Pla": 154,
+      "Fun": 95,
+      "Pro": 13,
+      "Bac": 862,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00035": {
+      "Description": "Methionine degradation",
+      "Ani": 728,
+      "Pla": 1,
+      "Fun": 107,
+      "Pro": 15,
+      "Bac": 1209,
+      "Arc": 24,
+      "Vir": null
+    }
+  },
+  "Branched-chain amino acid metabolism": {
+    "M00019": {
+      "Description": "Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine",
+      "Ani": null,
+      "Pla": 164,
+      "Fun": 183,
+      "Pro": null,
+      "Bac": 7149,
+      "Arc": 291,
+      "Vir": null
+    },
+    "M00535": {
+      "Description": "Isoleucine biosynthesis, pyruvate => 2-oxobutanoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 317,
+      "Arc": 231,
+      "Vir": null
+    },
+    "M00570": {
+      "Description": "Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine",
+      "Ani": null,
+      "Pla": 163,
+      "Fun": 182,
+      "Pro": null,
+      "Bac": 6567,
+      "Arc": 149,
+      "Vir": null
+    },
+    "M00432": {
+      "Description": "Leucine biosynthesis, 2-oxoisovalerate => 2-oxoisocaproate",
+      "Ani": null,
+      "Pla": 162,
+      "Fun": 182,
+      "Pro": 1,
+      "Bac": 7350,
+      "Arc": 349,
+      "Vir": null
+    },
+    "M00036": {
+      "Description": "Leucine degradation, leucine => acetoacetate + acetyl-CoA",
+      "Ani": 615,
+      "Pla": 151,
+      "Fun": 112,
+      "Pro": 8,
+      "Bac": 1142,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Lysine metabolism": {
+    "M00016": {
+      "Description": "Lysine biosynthesis, succinyl-DAP pathway, aspartate => lysine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4876,
+      "Arc": 1,
+      "Vir": null
+    },
+    "M00525": {
+      "Description": "Lysine biosynthesis, acetyl-DAP pathway, aspartate => lysine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 522,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00526": {
+      "Description": "Lysine biosynthesis, DAP dehydrogenase pathway, aspartate => lysine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 632,
+      "Arc": 3,
+      "Vir": null
+    },
+    "M00527": {
+      "Description": "Lysine biosynthesis, DAP aminotransferase pathway, aspartate => lysine",
+      "Ani": null,
+      "Pla": 163,
+      "Fun": null,
+      "Pro": 1,
+      "Bac": 1493,
+      "Arc": 102,
+      "Vir": null
+    },
+    "M00433": {
+      "Description": "Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": 177,
+      "Pro": null,
+      "Bac": 43,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00031": {
+      "Description": "Lysine biosynthesis, mediated by LysW, 2-aminoadipate => lysine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 63,
+      "Arc": 102,
+      "Vir": null
+    },
+    "M00956": {
+      "Description": "Lysine degradation, bacteria, L-lysine => succinate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 188,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00957": {
+      "Description": "Lysine degradation, bacteria, L-lysine => glutarate => succinate/acetyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 189,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00960": {
+      "Description": "Lysine degradation, bacteria, L-lysine => D-lysine => succinate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 29,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Arginine and proline metabolism": {
+    "M00028": {
+      "Description": "Ornithine biosynthesis, glutamate => ornithine",
+      "Ani": null,
+      "Pla": 167,
+      "Fun": 133,
+      "Pro": 3,
+      "Bac": 6295,
+      "Arc": 138,
+      "Vir": null
+    },
+    "M00844": {
+      "Description": "Arginine biosynthesis, ornithine => arginine",
+      "Ani": 476,
+      "Pla": 167,
+      "Fun": 181,
+      "Pro": 6,
+      "Bac": 6933,
+      "Arc": 365,
+      "Vir": null
+    },
+    "M00845": {
+      "Description": "Arginine biosynthesis, glutamate => acetylcitrulline => arginine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 163,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00978": {
+      "Description": "Ornithine-ammonia cycle",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 952,
+      "Arc": 2,
+      "Vir": null
+    },
+    "M00015": {
+      "Description": "Proline biosynthesis, glutamate => proline",
+      "Ani": 729,
+      "Pla": 170,
+      "Fun": 185,
+      "Pro": 26,
+      "Bac": 7307,
+      "Arc": 106,
+      "Vir": null
+    },
+    "M00970": {
+      "Description": "Proline degradation, proline => glutamate",
+      "Ani": 709,
+      "Pla": 164,
+      "Fun": 114,
+      "Pro": 34,
+      "Bac": 6265,
+      "Arc": 24,
+      "Vir": null
+    },
+    "M00972": {
+      "Description": "Proline metabolism",
+      "Ani": 723,
+      "Pla": 163,
+      "Fun": 111,
+      "Pro": 17,
+      "Bac": 1620,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00879": {
+      "Description": "Arginine succinyltransferase pathway, arginine => glutamate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 982,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Polyamine biosynthesis": {
+    "M00133": {
+      "Description": "Polyamine biosynthesis, arginine => agmatine => putrescine => spermidine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1402,
+      "Arc": 93,
+      "Vir": null
+    },
+    "M00134": {
+      "Description": "Polyamine biosynthesis, arginine => ornithine => putrescine",
+      "Ani": 723,
+      "Pla": 159,
+      "Fun": 188,
+      "Pro": 46,
+      "Bac": 2789,
+      "Arc": 100,
+      "Vir": null
+    },
+    "M00135": {
+      "Description": "GABA biosynthesis, eukaryotes, putrescine => GABA",
+      "Ani": 581,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 376,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00136": {
+      "Description": "GABA biosynthesis, prokaryotes, putrescine => GABA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 210,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Histidine metabolism": {
+    "M00026": {
+      "Description": "Histidine biosynthesis, PRPP => histidine",
+      "Ani": 2,
+      "Pla": 149,
+      "Fun": 164,
+      "Pro": 3,
+      "Bac": 5001,
+      "Arc": 75,
+      "Vir": null
+    },
+    "M00045": {
+      "Description": "Histidine degradation, histidine => N-formiminoglutamate => glutamate",
+      "Ani": 521,
+      "Pla": null,
+      "Fun": null,
+      "Pro": 7,
+      "Bac": 3476,
+      "Arc": 56,
+      "Vir": null
+    }
+  },
+  "Aromatic amino acid metabolism": {
+    "M00022": {
+      "Description": "Shikimate pathway, phosphoenolpyruvate + erythrose-4P => chorismate",
+      "Ani": null,
+      "Pla": 156,
+      "Fun": 182,
+      "Pro": 11,
+      "Bac": 4743,
+      "Arc": 11,
+      "Vir": null
+    },
+    "M00023": {
+      "Description": "Tryptophan biosynthesis, chorismate => tryptophan",
+      "Ani": null,
+      "Pla": 159,
+      "Fun": 174,
+      "Pro": null,
+      "Bac": 5798,
+      "Arc": 328,
+      "Vir": null
+    },
+    "M00024": {
+      "Description": "Phenylalanine biosynthesis, chorismate => phenylpyruvate => phenylalanine",
+      "Ani": null,
+      "Pla": 1,
+      "Fun": 125,
+      "Pro": null,
+      "Bac": 2157,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00025": {
+      "Description": "Tyrosine biosynthesis, chorismate => HPP => tyrosine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": 168,
+      "Pro": null,
+      "Bac": 1489,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00040": {
+      "Description": "Tyrosine biosynthesis, chorismate => arogenate => tyrosine",
+      "Ani": null,
+      "Pla": 165,
+      "Fun": null,
+      "Pro": 2,
+      "Bac": 563,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00043": {
+      "Description": "Thyroid hormone biosynthesis, tyrosine => triiodothyronine/thyroxine",
+      "Ani": 450,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00044": {
+      "Description": "Tyrosine degradation, tyrosine => homogentisate",
+      "Ani": 690,
+      "Pla": 153,
+      "Fun": 62,
+      "Pro": 11,
+      "Bac": 967,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00533": {
+      "Description": "Homoprotocatechuate degradation, homoprotocatechuate => 2-oxohept-3-enedioate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 591,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00038": {
+      "Description": "Tryptophan metabolism, tryptophan => kynurenine => 2-aminomuconate",
+      "Ani": 483,
+      "Pla": null,
+      "Fun": 3,
+      "Pro": null,
+      "Bac": 43,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Other amino acid metabolism": {
+    "M00027": {
+      "Description": "GABA (gamma-Aminobutyrate) shunt",
+      "Ani": 715,
+      "Pla": 154,
+      "Fun": 179,
+      "Pro": null,
+      "Bac": 1001,
+      "Arc": 16,
+      "Vir": null
+    },
+    "M00118": {
+      "Description": "Glutathione biosynthesis, glutamate => glutathione",
+      "Ani": 717,
+      "Pla": 166,
+      "Fun": 95,
+      "Pro": 1,
+      "Bac": 3660,
+      "Arc": 1,
+      "Vir": null
+    },
+    "M00947": {
+      "Description": "D-Arginine racemization, D-arginine => L-arginine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 130,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00948": {
+      "Description": "Hydroxyproline degradation, trans-4-hydroxy-L-proline => 2-oxoglutarate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 585,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00949": {
+      "Description": "Staphylopine biosynthesis, L-histidine => staphylopine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 126,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Nucleotide sugar biosynthesis": {
+    "M00909": {
+      "Description": "UDP-GlcNAc biosynthesis, prokaryotes, Fru-6P => UDP-GlcNAc",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7530,
+      "Arc": 306,
+      "Vir": null
+    },
+    "M00996": {
+      "Description": "UDP-MurNAc biosynthesis, anhMurNAc => UDP-MurNAc",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1525,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00995": {
+      "Description": "UDP-MurNAc biosynthesis, Fru-6P => UDP-MurNAc",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7253,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00549": {
+      "Description": "UDP-Glc biosynthesis, Glc => UDP-Glc",
+      "Ani": 745,
+      "Pla": 170,
+      "Fun": 188,
+      "Pro": 58,
+      "Bac": 5415,
+      "Arc": 16,
+      "Vir": null
+    },
+    "M01004": {
+      "Description": "UDP-Galf biosynthesis, UDP-Glc => UDP-Galf",
+      "Ani": 17,
+      "Pla": 11,
+      "Fun": 122,
+      "Pro": 18,
+      "Bac": 2350,
+      "Arc": 24,
+      "Vir": null
+    },
+    "M00997": {
+      "Description": "UDP-Xyl/L-Ara biosynthesis, UDP-Glc => UDP-Xyl => UDP-L-Ala",
+      "Ani": null,
+      "Pla": 165,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 245,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00999": {
+      "Description": "UDP-GlcA/GalA biosynthesis, UDP-Glc => UDP-GlcA => UDP-GalA",
+      "Ani": 4,
+      "Pla": 168,
+      "Fun": 10,
+      "Pro": 13,
+      "Bac": 3216,
+      "Arc": 17,
+      "Vir": null
+    },
+    "M00554": {
+      "Description": "UDP-Gal biosynthesis, Gal => UDP-Gal",
+      "Ani": 672,
+      "Pla": 2,
+      "Fun": 171,
+      "Pro": null,
+      "Bac": 3490,
+      "Arc": 48,
+      "Vir": null
+    },
+    "M01000": {
+      "Description": "GDP-Man biosynthesis, Fru-6P => GDP-Man",
+      "Ani": 715,
+      "Pla": 163,
+      "Fun": 190,
+      "Pro": 40,
+      "Bac": 4993,
+      "Arc": 190,
+      "Vir": null
+    },
+    "M01001": {
+      "Description": "GDP-L-Fuc biosynthesis, L-Fuc => GDP-L-Fuc",
+      "Ani": 485,
+      "Pla": 155,
+      "Fun": null,
+      "Pro": 18,
+      "Bac": 60,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00923": {
+      "Description": "UDP-L-FucNAc biosynthesis, UDP-GlcNAc => UDP-L-FucNAc",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 621,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00922": {
+      "Description": "CMP-Neu5Ac biosynthesis, bacteria, UDP-GlcNAc => CMP-Neu5Ac",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 127,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00063": {
+      "Description": "CMP-3-deoxy-D-manno-octulosonate biosynthesis, ribulose-5P => CMP-KDO",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3749,
+      "Arc": null,
+      "Vir": 1
+    },
+    "M00064": {
+      "Description": "ADP-L-glycero-D-manno-heptose biosynthesis, sedoheptulose-7P => ADP-LDmanHep",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2102,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00761": {
+      "Description": "Undecaprenylphosphate alpha-L-Ara4N biosynthesis, UDP-GlcA => undecaprenyl phosphate alpha-L-Ara4N",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 620,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00793": {
+      "Description": "dTDP-L-rhamnose biosynthesis, glucose-1P => dTDP-L-Rha",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5625,
+      "Arc": 193,
+      "Vir": 15
+    }
+  },
+  "Lipopolysaccharide metabolism": {
+    "M00060": {
+      "Description": "KDO2-lipid A biosynthesis, Raetz pathway, LpxL-LpxM type",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 864,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00866": {
+      "Description": "KDO2-lipid A biosynthesis, Raetz pathway, non-LpxL-LpxM type",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 71,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00867": {
+      "Description": "KDO2-lipid A modification pathway",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 59,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Other polysaccharide metabolism": {
+    "M00888": {
+      "Description": "Galactofuranan biosynthesis, decaprenyl phosphate + UDP-GlcNAc (+ dTDP-Rha/UDP-Galf) => GL-5",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 522,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Cofactor and vitamin metabolism": {
+    "M00127": {
+      "Description": "Thiamine biosynthesis, prokaryotes, AIR (+ DXP/tyrosine) => TMP/TPP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 718,
+      "Arc": 5,
+      "Vir": null
+    },
+    "M00895": {
+      "Description": "Thiamine biosynthesis, prokaryotes, AIR (+ DXP/glycine) => TMP/TPP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 84,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00896": {
+      "Description": "Thiamine biosynthesis, archaea, AIR (+ NAD+) => TMP/TPP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 64,
+      "Arc": 295,
+      "Vir": null
+    },
+    "M00899": {
+      "Description": "Thiamine salvage pathway, HMP/HET => TMP",
+      "Ani": null,
+      "Pla": 156,
+      "Fun": null,
+      "Pro": 1,
+      "Bac": 2947,
+      "Arc": 155,
+      "Vir": null
+    },
+    "M00125": {
+      "Description": "Riboflavin biosynthesis, plants and bacteria, GTP => riboflavin/FMN/FAD",
+      "Ani": null,
+      "Pla": 156,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2664,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00124": {
+      "Description": "Pyridoxal-P biosynthesis, erythrose-4P => pyridoxal-P",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1265,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00916": {
+      "Description": "Pyridoxal-P biosynthesis, R5P + glyceraldehyde-3P + glutamine => pyridoxal-P",
+      "Ani": 37,
+      "Pla": 170,
+      "Fun": 172,
+      "Pro": 29,
+      "Bac": 2645,
+      "Arc": 386,
+      "Vir": null
+    },
+    "M00115": {
+      "Description": "NAD biosynthesis, aspartate => quinolinate => NAD",
+      "Ani": null,
+      "Pla": 153,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5606,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00912": {
+      "Description": "NAD biosynthesis, tryptophan => quinolinate => NAD",
+      "Ani": 379,
+      "Pla": null,
+      "Fun": 65,
+      "Pro": 1,
+      "Bac": 54,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00810": {
+      "Description": "Nicotine degradation, pyridine pathway, nicotine => 2,6-dihydroxypyridine/succinate semialdehyde",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00811": {
+      "Description": "Nicotine degradation, pyrrolidine pathway, nicotine => succinate semialdehyde",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 19,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00622": {
+      "Description": "Nicotinate degradation, nicotinate => fumarate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 224,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00119": {
+      "Description": "Pantothenate biosynthesis, valine/L-aspartate => pantothenate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3179,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00120": {
+      "Description": "Coenzyme A biosynthesis, pantothenate => CoA",
+      "Ani": 642,
+      "Pla": 131,
+      "Fun": 49,
+      "Pro": 6,
+      "Bac": 7996,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00572": {
+      "Description": "Pimeloyl-ACP biosynthesis, BioC-BioH pathway, malonyl-ACP => pimeloyl-ACP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1657,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00123": {
+      "Description": "Biotin biosynthesis, pimeloyl-ACP/CoA => biotin",
+      "Ani": null,
+      "Pla": 165,
+      "Fun": 124,
+      "Pro": 5,
+      "Bac": 5036,
+      "Arc": 24,
+      "Vir": null
+    },
+    "M00950": {
+      "Description": "Biotin biosynthesis, BioU pathway, pimeloyl-ACP/CoA => biotin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 125,
+      "Arc": 39,
+      "Vir": null
+    },
+    "M00573": {
+      "Description": "Biotin biosynthesis, BioI pathway, long-chain-acyl-ACP => pimeloyl-ACP => biotin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 66,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00577": {
+      "Description": "Biotin biosynthesis, BioW pathway, pimelate => pimeloyl-CoA => biotin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 296,
+      "Arc": 23,
+      "Vir": null
+    },
+    "M00881": {
+      "Description": "Lipoic acid biosynthesis, plants and bacteria, octanoyl-ACP => dihydrolipoyl-E2/H",
+      "Ani": null,
+      "Pla": 162,
+      "Fun": null,
+      "Pro": 22,
+      "Bac": 6451,
+      "Arc": 12,
+      "Vir": null
+    },
+    "M00883": {
+      "Description": "Lipoic acid biosynthesis, animals and bacteria, octanoyl-ACP => dihydrolipoyl-H => dihydrolipoyl-E2",
+      "Ani": 620,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 530,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00126": {
+      "Description": "Tetrahydrofolate biosynthesis, GTP => THF",
+      "Ani": null,
+      "Pla": 132,
+      "Fun": 64,
+      "Pro": null,
+      "Bac": 3878,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00840": {
+      "Description": "Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP => THF",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 114,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00843": {
+      "Description": "L-threo-Tetrahydrobiopterin biosynthesis, GTP => L-threo-BH4",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 17,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00880": {
+      "Description": "Molybdenum cofactor biosynthesis, GTP => molybdenum cofactor",
+      "Ani": 635,
+      "Pla": 150,
+      "Fun": 16,
+      "Pro": null,
+      "Bac": 4295,
+      "Arc": 368,
+      "Vir": null
+    },
+    "M00988": {
+      "Description": "PreQ1 biosynthesis, GTP => 7-Aminomethyl-7-deazaguanine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4113,
+      "Arc": 1,
+      "Vir": 1
+    },
+    "M00140": {
+      "Description": "C1-unit interconversion, prokaryotes",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3202,
+      "Arc": 57,
+      "Vir": null
+    },
+    "M00846": {
+      "Description": "Siroheme biosynthesis, glutamyl-tRNA => siroheme",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2868,
+      "Arc": 2,
+      "Vir": null
+    },
+    "M00868": {
+      "Description": "Heme biosynthesis, animals and fungi, glycine => heme",
+      "Ani": 557,
+      "Pla": null,
+      "Fun": 153,
+      "Pro": null,
+      "Bac": 16,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00121": {
+      "Description": "Heme biosynthesis, plants and bacteria, glutamate => heme",
+      "Ani": null,
+      "Pla": 161,
+      "Fun": null,
+      "Pro": 4,
+      "Bac": 3564,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00926": {
+      "Description": "Heme biosynthesis, bacteria, glutamyl-tRNA => coproporphyrin III => heme",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1648,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00847": {
+      "Description": "Heme biosynthesis, archaea, siroheme => heme",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 183,
+      "Arc": 116,
+      "Vir": null
+    },
+    "M00924": {
+      "Description": "Cobalamin biosynthesis, anaerobic, uroporphyrinogen III => sirohydrochlorin => cobyrinate a,c-diamide",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 666,
+      "Arc": 55,
+      "Vir": null
+    },
+    "M00925": {
+      "Description": "Cobalamin biosynthesis, aerobic, uroporphyrinogen III => precorrin 2 => cobyrinate a,c-diamide",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 317,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00122": {
+      "Description": "Cobalamin biosynthesis, cobyrinate a,c-diamide => cobalamin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2701,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00117": {
+      "Description": "Ubiquinone biosynthesis, prokaryotes, chorismate (+ polyprenyl-PP) => ubiquinol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1735,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00989": {
+      "Description": "Ubiquinone biosynthesis, O2-independent, prokaryotes, chorismate (+ polyprenyl-PP) => ubiquinol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1200,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00116": {
+      "Description": "Menaquinone biosynthesis, chorismate (+ polyprenyl-PP) => menaquinol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1294,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00930": {
+      "Description": "Menaquinone biosynthesis, futalosine pathway",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 509,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00931": {
+      "Description": "Menaquinone biosynthesis, modified futalosine pathway",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 233,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00932": {
+      "Description": "Phylloquinone biosynthesis, chorismate (+ phytyl-PP) => phylloquinol",
+      "Ani": null,
+      "Pla": 146,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 75,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00112": {
+      "Description": "Tocopherol/tocotorienol biosynthesis, homogentisate + phytyl/geranylgeranyl-PP => tocopherol/tocotorienol",
+      "Ani": null,
+      "Pla": 164,
+      "Fun": null,
+      "Pro": 4,
+      "Bac": 84,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Terpenoid backbone biosynthesis": {
+    "M00095": {
+      "Description": "C5 isoprenoid biosynthesis, mevalonate pathway",
+      "Ani": 638,
+      "Pla": 153,
+      "Fun": 128,
+      "Pro": 8,
+      "Bac": 71,
+      "Arc": 45,
+      "Vir": null
+    },
+    "M00096": {
+      "Description": "C5 isoprenoid biosynthesis, non-mevalonate pathway",
+      "Ani": null,
+      "Pla": 156,
+      "Fun": null,
+      "Pro": 5,
+      "Bac": 2645,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00364": {
+      "Description": "C10-C20 isoprenoid biosynthesis, bacteria",
+      "Ani": null,
+      "Pla": 170,
+      "Fun": null,
+      "Pro": 6,
+      "Bac": 4030,
+      "Arc": 437,
+      "Vir": null
+    },
+    "M00365": {
+      "Description": "C10-C20 isoprenoid biosynthesis, archaea",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1166,
+      "Arc": 437,
+      "Vir": null
+    }
+  },
+  "Plant terpenoid biosynthesis": {
+    "M00097": {
+      "Description": "beta-Carotene biosynthesis, GGAP => beta-carotene",
+      "Ani": null,
+      "Pla": 151,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 40,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Macrolide biosynthesis": {
+    "M00773": {
+      "Description": "Tylosin biosynthesis, methylmalonyl-CoA + malonyl-CoA => tylactone => tylosin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00934": {
+      "Description": "Mycinamicin biosynthesis, malonyl-CoA + methylmalonyl-CoA => protomycinolide IV => mycinamicin II",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00774": {
+      "Description": "Erythromycin biosynthesis, propanoyl-CoA + methylmalonyl-CoA => deoxyerythronolide B => erythromycin A/B",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00775": {
+      "Description": "Oleandomycin biosynthesis, malonyl-CoA + methylmalonyl-CoA => 8,8a-deoxyoleandolide => oleandomycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00776": {
+      "Description": "Pikromycin/methymycin biosynthesis, methylmalonyl-CoA + malonyl-CoA => narbonolide/10-deoxymethynolide => pikromycin/methymycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00777": {
+      "Description": "Avermectin biosynthesis, 2-methylbutanoyl-CoA/isobutyryl-CoA => 6,8a-Seco-6,8a-deoxy-5-oxoavermectin 1a/1b aglycone => avermectin A1a/B1a/A1b/B1b",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Enediyne biosynthesis": {
+    "M00824": {
+      "Description": "9-membered enediyne core biosynthesis, malonyl-CoA => 3-hydroxyhexadeca-4,6,8,10,12,14-hexaenoyl-ACP => 9-membered enediyne core",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 48,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00825": {
+      "Description": "10-membered enediyne core biosynthesis, malonyl-CoA => 3-hydroxyhexadeca-4,6,8,10,12,14-hexaenoyl-ACP => 10-membered enediyne core",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00826": {
+      "Description": "C-1027 benzoxazolinate moiety biosynthesis, chorismate => benzoxazolinyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00827": {
+      "Description": "C-1027 beta-amino acid moiety biosynthesis, tyrosine => 3-chloro-4,5-dihydroxy-beta-phenylalanyl-PCP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00828": {
+      "Description": "Maduropeptin beta-hydroxy acid moiety biosynthesis, tyrosine => 3-(4-hydroxyphenyl)-3-oxopropanoyl-PCP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00829": {
+      "Description": "3,6-Dimethylsalicylyl-CoA biosynthesis, malonyl-CoA => 6-methylsalicylate => 3,6-dimethylsalicylyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00830": {
+      "Description": "Neocarzinostatin naphthoate moiety biosynthesis, malonyl-CoA => 2-hydroxy-5-methyl-1-naphthoate => 2-hydroxy-7-methoxy-5-methyl-1-naphthoyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00831": {
+      "Description": "Kedarcidin 2-hydroxynaphthoate moiety biosynthesis, malonyl-CoA => 3,6,8-trihydroxy-2-naphthoate => 3-hydroxy-7,8-dimethoxy-6-isopropoxy-2-naphthoyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00832": {
+      "Description": "Kedarcidin 2-aza-3-chloro-beta-tyrosine moiety biosynthesis, azatyrosine => 2-aza-3-chloro-beta-tyrosyl-PCP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00834": {
+      "Description": "Calicheamicin orsellinate moiety biosynthesis, malonyl-CoA => orsellinate-ACP => 5-iodo-2,3-dimethoxyorsellinate-ACP",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00833": {
+      "Description": "Calicheamicin biosynthesis, calicheamicinone => calicheamicin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Type II polyketide biosynthesis": {
+    "M00778": {
+      "Description": "Type II polyketide backbone biosynthesis, acyl-CoA + malonyl-CoA => polyketide",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 137,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00779": {
+      "Description": "Dihydrokalafungin biosynthesis, octaketide => dihydrokalafungin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00780": {
+      "Description": "Tetracycline/oxytetracycline biosynthesis, pretetramide => tetracycline/oxytetracycline",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00823": {
+      "Description": "Chlortetracycline biosynthesis, pretetramide => chlortetracycline",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00781": {
+      "Description": "Nogalavinone/aklavinone biosynthesis, deoxynogalonate/deoxyaklanonate => nogalavinone/aklavinone",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 17,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00782": {
+      "Description": "Mithramycin biosynthesis, 4-demethylpremithramycinone => mithramycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00783": {
+      "Description": "Tetracenomycin C/8-demethyltetracenomycin C biosynthesis, tetracenomycin F2 => tetracenomycin C/8-demethyltetracenomycin C",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00784": {
+      "Description": "Elloramycin biosynthesis, 8-demethyltetracenomycin C => elloramycin A",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Polyketide sugar unit biosynthesis": {
+    "M00794": {
+      "Description": "dTDP-6-deoxy-D-allose biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00795": {
+      "Description": "dTDP-beta-L-noviose biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00796": {
+      "Description": "dTDP-D-mycaminose biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00797": {
+      "Description": "dTDP-D-desosamine biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00798": {
+      "Description": "dTDP-L-mycarose biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00799": {
+      "Description": "dTDP-L-oleandrose biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00800": {
+      "Description": "dTDP-L-megosamine biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00801": {
+      "Description": "dTDP-L-olivose biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00802": {
+      "Description": "dTDP-D-forosamine biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00803": {
+      "Description": "dTDP-D-angolosamine biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Biosynthesis of phytochemical compounds": {
+    "M00966": {
+      "Description": "Equol biosynthesis, daidzein => equol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00967": {
+      "Description": "Flavone degradation, luteolin/apigenin => DHCA/phloretate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Biosynthesis of beta-lactams": {
+    "M00673": {
+      "Description": "Cephamycin C biosynthesis, aminoadipate + cycteine + valine => cephamycin C",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00675": {
+      "Description": "Carbapenem-3-carboxylate biosynthesis, pyrroline-5-carboxylate + malonyl-CoA => carbapenem-3-carboxylate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 18,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00736": {
+      "Description": "Nocardicin A biosynthesis, L-pHPG + arginine + serine => nocardicin A",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00674": {
+      "Description": "Clavaminate biosynthesis, arginine + glyceraldehyde-3P => clavaminate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 13,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Biosynthesis of other antibiotics": {
+    "M00877": {
+      "Description": "Kanosamine biosynthesis, glucose 6-phosphate => kanosamine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 74,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00889": {
+      "Description": "Puromycin biosynthesis, ATP => puromycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00815": {
+      "Description": "Validamycin A biosynthesis, sedoheptulopyranose-7P => validamycin A",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00904": {
+      "Description": "Dapdiamides biosynthesis, L-2,3-diaminopropanoate => dapdiamide A/B/C",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00787": {
+      "Description": "Bacilysin biosynthesis, prephenate => bacilysin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 63,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00785": {
+      "Description": "Cycloserine biosynthesis, arginine/serine => cycloserine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00848": {
+      "Description": "Aurachin biosynthesis, anthranilate => aurachin A",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00788": {
+      "Description": "Terpentecin biosynthesis, GGAP => terpentecin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00819": {
+      "Description": "Pentalenolactone biosynthesis, farnesyl-PP => pentalenolactone",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00903": {
+      "Description": "Fosfomycin biosynthesis, phosphoenolpyruvate => fosfomycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00890": {
+      "Description": "Roseoflavin biosynthesis, FMN => roseoflavin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00951": {
+      "Description": "Cremeomycin biosynthesis, aspartate/3,4-AHBA => cremeomycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Biosynthesis of other bacterial compounds": {
+    "M00814": {
+      "Description": "Acarbose biosynthesis, sedoheptulopyranose-7P => acarbose",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00789": {
+      "Description": "Rebeccamycin biosynthesis, tryptophan => rebeccamycin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00790": {
+      "Description": "Pyrrolnitrin biosynthesis, tryptophan => pyrrolnitrin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 55,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00805": {
+      "Description": "Staurosporine biosynthesis, tryptophan => staurosporine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00808": {
+      "Description": "Violacein biosynthesis, tryptophan => violacein",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 15,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00835": {
+      "Description": "Pyocyanine biosynthesis, chorismate => pyocyanine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 23,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00837": {
+      "Description": "Prodigiosin biosynthesis, L-proline => prodigiosin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 24,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00838": {
+      "Description": "Undecylprodigiosin biosynthesis, L-proline => undecylprodigiosin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 14,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00921": {
+      "Description": "Cyclooctatin biosynthesis, dimethylallyl-PP + isopentenyl-PP => cyclooctatin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 14,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00905": {
+      "Description": "Grixazone biosynthesis, aspartate 4-semialdehyde => grixazone B",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00876": {
+      "Description": "Staphyloferrin A biosynthesis, L-ornithine => staphyloferrin A",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 111,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00875": {
+      "Description": "Staphyloferrin B biosynthesis, L-serine => staphyloferrin B",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 74,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00918": {
+      "Description": "Aerobactin biosynthesis, lysine => aerobactin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 210,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00906": {
+      "Description": "Ethynylserine biosynthesis, lysine => ethynylserine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Aromatics degradation": {
+    "M00538": {
+      "Description": "Toluene degradation, toluene => benzoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 6,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00537": {
+      "Description": "Xylene degradation, xylene => methylbenzoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00419": {
+      "Description": "Cymene degradation, p-cymene => p-cumate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 9,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00547": {
+      "Description": "Benzene/toluene degradation, benzene => catechol / toluene => 3-methylcatechol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00548": {
+      "Description": "Benzene degradation, benzene => catechol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 196,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00551": {
+      "Description": "Benzoate degradation, benzoate => catechol / methylbenzoate => methylcatechol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 669,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00637": {
+      "Description": "Anthranilate degradation, anthranilate => catechol",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 242,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00568": {
+      "Description": "Catechol ortho-cleavage, catechol => 3-oxoadipate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 816,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00569": {
+      "Description": "Catechol meta-cleavage, catechol => acetyl-CoA / 4-methylcatechol => propanoyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 308,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00539": {
+      "Description": "Cumate degradation, p-cumate => 2-oxopent-4-enoate + 2-methylpropanoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00543": {
+      "Description": "Biphenyl degradation, biphenyl => 2-oxopent-4-enoate + benzoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 4,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00544": {
+      "Description": "Carbazole degradation, carbazole => 2-oxopent-4-enoate + anthranilate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 10,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00418": {
+      "Description": "Toluene degradation, anaerobic, toluene => benzoyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00541": {
+      "Description": "Benzoyl-CoA degradation, benzoyl-CoA => 3-hydroxypimeloyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 30,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00540": {
+      "Description": "Benzoate degradation, cyclohexanecarboxylic acid =>pimeloyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 23,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00534": {
+      "Description": "Naphthalene degradation, naphthalene => salicylate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00638": {
+      "Description": "Salicylate degradation, salicylate => gentisate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 73,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00624": {
+      "Description": "Terephthalate degradation, terephthalate => 3,4-dihydroxybenzoate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00623": {
+      "Description": "Phthalate degradation, phthalate => protocatechuate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 80,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00636": {
+      "Description": "Phthalate degradation, phthalate => protocatechuate",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 10,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00878": {
+      "Description": "Phenylacetate degradation, phenylaxetate => acetyl-CoA/succinyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 207,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00545": {
+      "Description": "Trans-cinnamate degradation, trans-cinnamate => acetyl-CoA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 406,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00915": {
+      "Description": "Caffeine degradation, caffeine => xanthine",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Pathogenicity": {
+    "M00852": {
+      "Description": "Vibrio cholerae pathogenicity signature, toxin coregulated pilus",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 10,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00850": {
+      "Description": "Vibrio cholerae pathogenicity signature, cholera toxins",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00542": {
+      "Description": "EHEC/EPEC pathogenicity signature, T3SS and effectors",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 14,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00363": {
+      "Description": "EHEC pathogenicity signature, Shiga toxin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 14,
+      "Arc": null,
+      "Vir": 30
+    },
+    "M00853": {
+      "Description": "ETEC pathogenicity signature, colonization factors",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00576": {
+      "Description": "ETEC pathogenicity signature, heat-labile and heat-stable enterotoxins",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 2,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00856": {
+      "Description": "Salmonella enterica pathogenicity signature, typhoid toxin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00857": {
+      "Description": "Salmonella enterica pathogenicity signature, Vi antigen",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00575": {
+      "Description": "Pertussis pathogenicity signature, T1SS",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 8,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00574": {
+      "Description": "Pertussis pathogenicity signature, pertussis toxin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 11,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00564": {
+      "Description": "Helicobacter pylori pathogenicity signature, cagA pathogenicity island",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 45,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00859": {
+      "Description": "Bacillus anthracis pathogenicity signature, anthrax toxin",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 12,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00860": {
+      "Description": "Bacillus anthracis pathogenicity signature, polyglutamic acid capsule biosynthesis",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 7,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Drug resistance": {
+    "M00851": {
+      "Description": "Carbapenem resistance",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 195,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00625": {
+      "Description": "Methicillin resistance",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 22,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00627": {
+      "Description": "beta-Lactam resistance, Bla system",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 975,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00745": {
+      "Description": "Imipenem resistance, repression of porin OprD",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 1412,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00651": {
+      "Description": "Vancomycin resistance, D-Ala-D-Lac type",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 43,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00652": {
+      "Description": "Vancomycin resistance, D-Ala-D-Ser type",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 33,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00704": {
+      "Description": "Tetracycline resistance, efflux pump Tet38",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 68,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00725": {
+      "Description": "Cationic antimicrobial peptide (CAMP) resistance, dltABCD operon",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 94,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00726": {
+      "Description": "Cationic antimicrobial peptide (CAMP) resistance, lysyl-phosphatidylglycerol (L-PG) synthase MprF",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 103,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00730": {
+      "Description": "Cationic antimicrobial peptide (CAMP) resistance, VraFG transporter",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 77,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00744": {
+      "Description": "Cationic antimicrobial peptide (CAMP) resistance, protease PgtE",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 55,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00718": {
+      "Description": "Multidrug resistance, efflux pump MexAB-OprM",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 31,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00639": {
+      "Description": "Multidrug resistance, efflux pump MexCD-OprJ",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 131,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00641": {
+      "Description": "Multidrug resistance, efflux pump MexEF-OprN",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 226,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00642": {
+      "Description": "Multidrug resistance, efflux pump MexJK-OprM",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 501,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00643": {
+      "Description": "Multidrug resistance, efflux pump MexXY-OprM",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 114,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00769": {
+      "Description": "Multidrug resistance, efflux pump MexPQ-OpmE",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 20,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00649": {
+      "Description": "Multidrug resistance, efflux pump AdeABC",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 212,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00696": {
+      "Description": "Multidrug resistance, efflux pump AcrEF-TolC",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 263,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00697": {
+      "Description": "Multidrug resistance, efflux pump MdtEF-TolC",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 84,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00698": {
+      "Description": "Multidrug resistance, efflux pump BpeEF-OprC",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 374,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00700": {
+      "Description": "Multidrug resistance, efflux pump AbcA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 245,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00702": {
+      "Description": "Multidrug resistance, efflux pump NorB",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 110,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00714": {
+      "Description": "Multidrug resistance, efflux pump QacA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 15,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00705": {
+      "Description": "Multidrug resistance, efflux pump MepA",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 222,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00746": {
+      "Description": "Multidrug resistance, repression of porin OmpF",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 43,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Plant pathogenicity": {
+    "M00660": {
+      "Description": "Xanthomonas spp. pathogenicity signature, T3SS and effectors",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 34,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Symbiosis": {
+    "M00664": {
+      "Description": "Nodulation",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 102,
+      "Arc": null,
+      "Vir": null
+    }
+  },
+  "Metabolic capacity": {
+    "M00611": {
+      "Description": "Oxygenic photosynthesis in plants and cyanobacteria",
+      "Ani": null,
+      "Pla": 127,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 184,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00612": {
+      "Description": "Anoxygenic photosynthesis in purple bacteria",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 52,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00613": {
+      "Description": "Anoxygenic photosynthesis in green nonsulfur bacteria",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 5,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00614": {
+      "Description": "Anoxygenic photosynthesis in green sulfur bacteria",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 10,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00618": {
+      "Description": "Acetogen",
+      "Ani": null,
+      "Pla": null,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 55,
+      "Arc": null,
+      "Vir": null
+    },
+    "M00615": {
+      "Description": "Nitrate assimilation",
+      "Ani": null,
+      "Pla": 168,
+      "Fun": 94,
+      "Pro": 5,
+      "Bac": 1697,
+      "Arc": 59,
+      "Vir": null
+    },
+    "M00616": {
+      "Description": "Sulfate-sulfur assimilation",
+      "Ani": null,
+      "Pla": 7,
+      "Fun": null,
+      "Pro": null,
+      "Bac": 3380,
+      "Arc": null,
+      "Vir": null
+    }
+  }
+}
