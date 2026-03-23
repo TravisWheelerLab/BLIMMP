@@ -4,7 +4,7 @@ conda create -n BLIMMP-test python=3.10 -y
 
 conda activate BLIMMP-test
 
-git clone this repo
+git clone https://github.com/TravisWheelerLab/BLIMMP.git
 
 cd BLIMMP
 
