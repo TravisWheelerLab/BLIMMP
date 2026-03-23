@@ -1,5 +1,5 @@
 #BLIMMP Source Code
-#Date: December 17 2025
+#Date: March 26 
 #Author: Neha S
 
 import os
@@ -2170,14 +2170,27 @@ class BlimmpPipeline:
 
 
 def main():
-    p = argparse.ArgumentParser(description='BLIMMP class-based pipeline (tbl/domtblout)')
-    p.add_argument('file', help='Path to the .tblout or .domtblout file')
-    p.add_argument('-f', '--format', choices=['tbl','domtblout'], required=True)
-    p.add_argument('-s', '--sigma', type=float, required=True)
-    #Easy to add if they want one or two hop/ default is 2 hop
-    p.add_argument('-t', '--taxonomy', default="bacteria", metavar="NAME")
-    p.add_argument('-o', '--output', required=True, help='Output prefix')
-    p.add_argument('-l', '--logfile', action='store_true', help='Generate verbose logfile')
+    p = argparse.ArgumentParser(
+    description='BLIMMP: Bayesian Likelihood Inference of Metabolic Module Presence. '
+                'Evaluates KEGG module completeness from HMM search results.',
+    formatter_class=argparse.RawDescriptionHelpFormatter,
+    epilog='example:\n'
+           '  time python BLIMMP/BLIMMP_Scripts/module_detection.py \\\n'
+           '    BLIMMP/Examples/example.domtblout \\\n'
+           '    -f domtblout --sigma 1.0 --output example_name -l\n')
+    
+    p.add_argument('file',help='Path to the HMMER .tblout or .domtblout file')
+    p.add_argument('-f', '--format',choices=['domtblout'], required=True,help='Input file format: "domtblout" for --domtblout')
+    p.add_argument('-s', '--sigma',type=float, required=True,help='Genome completeness estimate (0.0-1.0). Use 1.0 if unknown or for complete genomes')
+    p.add_argument('-t', '--taxonomy',default="bacteria", metavar="NAME",
+        help='Taxonomic group for priors (default: bacteria). '
+            'Options include phylum names like "cyanobacteriota" or kingdom names like "pseudomonadati"')
+    p.add_argument('-o', '--output',
+        required=True, metavar="PREFIX",
+        help='Output prefix for result files (e.g., "results/Genomename_Result")')
+    p.add_argument('-l', '--logfile',
+        action='store_true',
+        help='Write a verbose debug log to <PREFIX>_debug.log')
     args = p.parse_args()
 
     logfile_path = f"{args.output}_debug.log" if args.logfile else None
