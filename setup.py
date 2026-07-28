@@ -14,13 +14,15 @@ setup(
     ],
     package_data={
         "BLIMMP_Scripts": [
-            "Graph_Dependencies/KEGG_Module_Graphs.zip",
-            "Graph_Dependencies/KEGG_Module_Equations_Jan26.json",
-            "Graph_Dependencies/module_ko_reaction.json",
-            "Graph_Dependencies/MODULE_ALL_NEIGHBOR_DATA/*",
-            "Data_Dependencies/ATB_Taxonomy_Frequency/*",
-            "Data_Dependencies/ko_list.txt",
-            "Data_Dependencies/module_freq.txt",
+            # Module graphs, shipped zipped and extracted on first use.
+            # module_detection.py hard-fails if this is missing, so a rename
+            # here can no longer silently produce all-zero results.
+            "Graph_Dependencies/KEGG_Graphs_Generated_March26.zip",
+            "Graph_Dependencies/*.json",
+            "Graph_Dependencies/MODULE_ALL_NEIGHBOR_DATA/*.json",
+            "Data_Dependencies/*.txt",
+            "Data_Dependencies/*.json",
+            "Data_Dependencies/ATB_Taxonomy_Frequency/*.tsv",
         ]
     },
     include_package_data=True,
