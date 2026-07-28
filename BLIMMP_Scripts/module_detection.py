@@ -5,10 +5,12 @@
 import os
 import glob
 import re
+import shutil
 import sys
 import math
 import ast
 import json
+import tempfile
 import argparse
 import pandas as pd
 import numpy as np
@@ -2041,6 +2043,14 @@ class BlimmpPipeline:
 
         # Build KO universe straight from my module JSONs
         ko_to_modules_str = File_Helpers.modules_to_kos(self.paths.module_json_dir)
+        if not ko_to_modules_str:
+            # Observed annotations are left-joined onto this universe below, so an
+            # empty universe silently discards every hit and scores all modules 0.
+            raise SystemExit(
+                f"[FATAL] No KEGG module graphs found in {self.paths.module_json_dir} "
+                f"(expected module_*_nodes.json). Refusing to continue: every module "
+                f"would be reported absent regardless of the input."
+            )
         ko_universe = pd.DataFrame({'KO id': sorted(ko_to_modules_str.keys())})
 
 
@@ -2169,6 +2179,124 @@ class BlimmpPipeline:
 
 
 
+GRAPH_ZIP_NAME = "KEGG_Graphs_Generated_March26.zip"
+GRAPH_DIR_NAME = "KEGG_Graphs_Generated_March26"
+
+
+def _graphs_present(directory) -> bool:
+    """True if `directory` holds at least one extracted module graph."""
+    return bool(glob.glob(os.path.join(str(directory), "module_*_nodes.json")))
+
+
+def ensure_module_graphs(graph_dependencies_dir=None) -> Path:
+    """Return a directory holding the extracted KEGG module graphs.
+
+    The graphs ship as a zip inside the installed package.  They are extracted
+    once, on first use, and reused thereafter.
+
+    The install tree is read-only in a container (Singularity mounts the image
+    read-only), so if extraction there fails we fall back to a user-writable
+    cache directory.  Set BLIMMP_CACHE_DIR to control where that lands.
+    Building the container pre-extracts the graphs so this never runs at
+    analysis time.
+
+    Raises SystemExit if the graphs can be neither found nor extracted --
+    without them BLIMMP has an empty KO universe and every module scores zero.
+    """
+    if graph_dependencies_dir is None:
+        graph_dependencies_dir = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "Graph_Dependencies"
+        )
+    graph_dependencies_dir = Path(graph_dependencies_dir)
+
+    in_place = graph_dependencies_dir / GRAPH_DIR_NAME
+    if _graphs_present(in_place):
+        return in_place
+
+    cache_root = Path(
+        os.environ.get("BLIMMP_CACHE_DIR")
+        or (Path(tempfile.gettempdir()) / f"blimmp-cache-{os.getuid()}")
+    )
+    cached = cache_root / GRAPH_DIR_NAME
+    if _graphs_present(cached):
+        return cached
+
+    zip_path = graph_dependencies_dir / GRAPH_ZIP_NAME
+    if not zip_path.is_file():
+        raise SystemExit(
+            f"[FATAL] KEGG module graphs are missing from this BLIMMP installation.\n"
+            f"  Expected extracted graphs in : {in_place}\n"
+            f"  or the source archive at     : {zip_path}\n"
+            f"This usually means the package was built without its data files "
+            f"(check `package_data` in setup.py). Reinstall BLIMMP, or use a "
+            f"container image built from a corrected release."
+        )
+
+    # Prefer the install tree; fall back to the cache if it is read-only.
+    for destination in (in_place, cached):
+        try:
+            destination.mkdir(parents=True, exist_ok=True)
+            _extract_module_graphs(zip_path, destination)
+        except OSError as exc:
+            logging.debug("Could not extract graphs to %s: %s", destination, exc)
+            continue
+        if _graphs_present(destination):
+            return destination
+
+    raise SystemExit(
+        f"[FATAL] Failed to extract {GRAPH_ZIP_NAME}. Tried {in_place} and {cached}. "
+        f"Set BLIMMP_CACHE_DIR to a writable directory and retry."
+    )
+
+
+def _extract_module_graphs(zip_path, destination) -> None:
+    """Extract `zip_path` into `destination`, normalising the archive layout.
+
+    The archive was built on macOS, so it carries __MACOSX metadata and wraps
+    everything in a redundant top-level folder.  Both are flattened away.
+    The source zip is deliberately left in place so extraction stays repeatable.
+    """
+    print(f"Extracting {os.path.basename(str(zip_path))} to {destination} ...")
+    destination = Path(destination)
+    with zipfile.ZipFile(str(zip_path), "r") as z:
+        z.extractall(str(destination))
+
+    macosx_path = destination / "__MACOSX"
+    if macosx_path.is_dir():
+        shutil.rmtree(str(macosx_path))
+
+    nested = destination / destination.name
+    if nested.is_dir():
+        for item in os.listdir(str(nested)):
+            shutil.move(str(nested / item), str(destination / item))
+        nested.rmdir()
+
+
+def validate_paths(paths: "Paths") -> None:
+    """Fail fast if a required data dependency is missing.
+
+    Several of these were silently optional, which let a mispackaged build
+    produce a structurally complete but entirely zero-valued result.
+    """
+    required = {
+        "KEGG module equations": paths.module_eq_json,
+        "KOfam KO list": paths.kofam_ko_list_path,
+        "module frequencies": paths.module_frequencies,
+        "module/KO reaction map": paths.module_reaction_dir,
+        "module descriptions": paths.module_descriptions_path,
+        "taxonomy frequency tables": paths.counts_dir,
+        "module neighbor data": paths.module_neighbor_dir,
+    }
+    missing = [f"  {label}: {path}" for label, path in required.items() if not Path(path).exists()]
+    if missing:
+        raise SystemExit(
+            "[FATAL] BLIMMP is missing required data files:\n"
+            + "\n".join(missing)
+            + "\nThe installation is incomplete -- reinstall BLIMMP or use a "
+              "container image built from a corrected release."
+        )
+
+
 def main():
     p = argparse.ArgumentParser(
     description='BLIMMP: Bayesian Likelihood Inference of Metabolic Module Presence. '
@@ -2237,44 +2365,19 @@ def main():
     GD   = os.path.join(HERE, "Graph_Dependencies")
     DD   = os.path.join(HERE, "Data_Dependencies")
 
-    ZIPS_TO_EXTRACT = {os.path.join(GD, "KEGG_Graphs_Generated_March26.zip") : os.path.join(GD, "KEGG_Graphs_Generated_March26")}
-
-    for zip_path, extract_to in ZIPS_TO_EXTRACT.items():
-        if os.path.isfile(zip_path):                   
-            os.makedirs(extract_to, exist_ok=True)
-            print(f"Extracting {os.path.basename(zip_path)}...")
-            with zipfile.ZipFile(zip_path, 'r') as z:
-                z.extractall(extract_to)
-
-                macosx_path = os.path.join(extract_to, "__MACOSX")
-                if os.path.isdir(macosx_path):
-                    import shutil
-                    shutil.rmtree(macosx_path)
-                    print(f"Removed MACOSX metadata folder")
-
-                extract_name = os.path.basename(extract_to)
-                nested = os.path.join(extract_to, extract_name)
-                if os.path.isdir(nested):
-                    import shutil
-                    for item in os.listdir(nested):
-                        shutil.move(os.path.join(nested, item), extract_to)
-                    os.rmdir(nested)
-                    print(f"  Flattened double-nested folder: {extract_name}/{extract_name} to {extract_name}/")
-            os.remove(zip_path)                           
-            print(f"Done. {extract_to}")
-
     paths = Paths(
         counts_dir = Path(DD)/ "ATB_Taxonomy_Frequency",
         onehop_dir = Path(GD)/ "ONE_HOP_NEIGHBOR_DATA",
         twohop_dir = Path(GD)/ "TWO_HOP_NEIGHBOR_DATA",
         module_neighbor_dir   = Path(GD)/ "MODULE_ALL_NEIGHBOR_DATA",
         module_eq_json = Path(GD)/ "KEGG_Module_Equations_Jan26.json",
-        module_json_dir = Path(GD)/ "KEGG_Graphs_Generated_March26",
+        module_json_dir = ensure_module_graphs(GD),
         kofam_ko_list_path = Path(DD)/ "ko_list.txt",
         module_frequencies = Path(DD)/ "module_freq.txt",
         module_reaction_dir = Path(GD)/ "module_ko_reaction.json",
         module_descriptions_path = Path(DD)/ "kegg_bacteria_modules.json"
     )
+    validate_paths(paths)
 
 
     BlimmpPipeline(cfg, paths).run()

@@ -6,3 +6,11 @@
 __pycache__/
 *.pyc
 BLIMMP/Step1_BATH_KOFAMDB
+
+# Build artifacts from `pip install .`
+build/
+dist/
+*.egg-info/
+
+# Module graphs, extracted from the packaged zip on first use
+BLIMMP_Scripts/Graph_Dependencies/KEGG_Graphs_Generated_March26/

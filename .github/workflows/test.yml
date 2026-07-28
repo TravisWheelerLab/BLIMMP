@@ -1,0 +1,38 @@
+name: Test
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Build the same image the release workflow publishes, so the test covers
+      # the installed package rather than the source tree. A build that drops a
+      # data file fails here instead of silently producing all-zero results.
+      - name: Build image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          load: true
+          tags: blimmp:ci
+
+      - name: BLIMMP --help
+        run: docker run --rm blimmp:ci BLIMMP -h
+
+      - name: Smoke test
+        run: docker run --rm blimmp:ci python /app/tests/smoke_test.py
+
+      # The published image runs read-only under Singularity on HPC. Catch any
+      # attempt to write into the install tree at analysis time.
+      - name: Smoke test on a read-only filesystem
+        run: |
+          docker run --rm --read-only --tmpfs /tmp \
+            -e BLIMMP_CACHE_DIR=/tmp/blimmp-cache \
+            blimmp:ci python /app/tests/smoke_test.py

@@ -1,7 +1,6 @@
-include BLIMMP_Scripts/Graph_Dependencies/KEGG_Module_Graphs.zip
-include BLIMMP_Scripts/Graph_Dependencies/KEGG_Module_Equations_Jan26.json
-include BLIMMP_Scripts/Graph_Dependencies/module_ko_reaction.json
-include BLIMMP_Scripts/Graph_Dependencies/MODULE_ALL_NEIGHBOR_DATA/*
-include BLIMMP_Scripts/Data_Dependencies/ATB_Taxonomy_Frequency/*
-include BLIMMP_Scripts/Data_Dependencies/ko_list.txt
-include BLIMMP_Scripts/Data_Dependencies/module_freq.txt
+include BLIMMP_Scripts/Graph_Dependencies/KEGG_Graphs_Generated_March26.zip
+include BLIMMP_Scripts/Graph_Dependencies/*.json
+include BLIMMP_Scripts/Graph_Dependencies/MODULE_ALL_NEIGHBOR_DATA/*.json
+include BLIMMP_Scripts/Data_Dependencies/*.txt
+include BLIMMP_Scripts/Data_Dependencies/*.json
+include BLIMMP_Scripts/Data_Dependencies/ATB_Taxonomy_Frequency/*.tsv
