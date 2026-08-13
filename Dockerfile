@@ -10,10 +10,16 @@ RUN pip install --no-cache-dir .
 # Singularity mounts the image read-only at run time, so leaving this to first
 # use would fail on HPC. Also fails the build if the data files did not make it
 # into the installed package.
-RUN python -c "\
+#
+# -I (isolated mode) keeps the working directory off sys.path. Without it both
+# commands below import the COPYed source tree at /app instead of the installed
+# package: the graphs get extracted into /app where nothing reads them, and the
+# assertion inspects the source tree, where the files trivially exist and so can
+# never fail. Do not drop the flag.
+RUN python -I -c "\
 from BLIMMP_Scripts.module_detection import ensure_module_graphs; \
 print('module graphs:', ensure_module_graphs())" \
- && python -c "\
+ && python -I -c "\
 import BLIMMP_Scripts, pathlib, sys; \
 root = pathlib.Path(BLIMMP_Scripts.__file__).parent; \
 required = ['Data_Dependencies/kegg_bacteria_modules.json', \
