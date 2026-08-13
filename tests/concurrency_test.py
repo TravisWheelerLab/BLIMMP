@@ -72,8 +72,9 @@ def main() -> int:
             print(f"FAIL: expected {EXPECTED_GRAPHS} module graphs, found {len(graphs)}")
             return 1
 
-        # Every worker must agree on where the graphs ended up.
-        returned = {out.strip() for _, out, _ in results}
+        # Every worker must agree on where the graphs ended up. The extracting
+        # worker also prints a progress line, so read the path off the last one.
+        returned = {out.strip().splitlines()[-1] for _, out, _ in results if out.strip()}
         if returned != {str(extracted)}:
             print(f"FAIL: workers disagreed on the graph directory: {sorted(returned)}")
             return 1
