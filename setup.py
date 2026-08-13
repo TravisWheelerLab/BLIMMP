@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="BLIMMP",
-    version="0.1.0",
+    version="0.1.3",
     author="Neha Sontakke",
     license="MIT",
     packages=find_packages(),
