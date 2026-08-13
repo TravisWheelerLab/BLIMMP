@@ -36,3 +36,9 @@ jobs:
           docker run --rm --read-only --tmpfs /tmp \
             -e BLIMMP_CACHE_DIR=/tmp/blimmp-cache \
             blimmp:ci python /app/tests/smoke_test.py
+
+      # Nextflow runs one BLIMMP task per genome, so several processes extract
+      # the module graphs at once. That raced and killed half the tasks on a
+      # 9-genome run.
+      - name: Concurrent extraction
+        run: docker run --rm blimmp:ci python /app/tests/concurrency_test.py
