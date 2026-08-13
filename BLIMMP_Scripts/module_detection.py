@@ -2255,21 +2255,45 @@ def _extract_module_graphs(zip_path, destination) -> None:
     The archive was built on macOS, so it carries __MACOSX metadata and wraps
     everything in a redundant top-level folder.  Both are flattened away.
     The source zip is deliberately left in place so extraction stays repeatable.
+
+    Extraction happens in a private staging directory that is then renamed into
+    position, because several BLIMMP processes on one machine share a cache
+    directory and will race here.  Extracting straight into `destination` let
+    them tear up each other's files: one process would rmtree __MACOSX or
+    rmdir the nested folder while another was still reading from it, and the
+    OSError that followed looked to the caller like an unwritable destination.
+    A rename onto a missing or empty directory is atomic on POSIX, so the first
+    process to finish wins and the rest adopt its copy.
     """
     print(f"Extracting {os.path.basename(str(zip_path))} to {destination} ...")
     destination = Path(destination)
-    with zipfile.ZipFile(str(zip_path), "r") as z:
-        z.extractall(str(destination))
+    parent = destination.parent
+    parent.mkdir(parents=True, exist_ok=True)
 
-    macosx_path = destination / "__MACOSX"
-    if macosx_path.is_dir():
-        shutil.rmtree(str(macosx_path))
+    staging = Path(tempfile.mkdtemp(prefix=f".{destination.name}.", dir=str(parent)))
+    try:
+        with zipfile.ZipFile(str(zip_path), "r") as z:
+            z.extractall(str(staging))
 
-    nested = destination / destination.name
-    if nested.is_dir():
-        for item in os.listdir(str(nested)):
-            shutil.move(str(nested / item), str(destination / item))
-        nested.rmdir()
+        macosx_path = staging / "__MACOSX"
+        if macosx_path.is_dir():
+            shutil.rmtree(str(macosx_path))
+
+        nested = staging / destination.name
+        if nested.is_dir():
+            for item in os.listdir(str(nested)):
+                shutil.move(str(nested / item), str(staging / item))
+            nested.rmdir()
+
+        try:
+            os.replace(str(staging), str(destination))
+        except OSError:
+            # Another process finished first and its directory is non-empty, so
+            # the rename is refused.  Its graphs are as good as ours.
+            if not _graphs_present(destination):
+                raise
+    finally:
+        shutil.rmtree(str(staging), ignore_errors=True)
 
 
 def validate_paths(paths: "Paths") -> None:
