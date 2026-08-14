@@ -27,18 +27,110 @@ import zipfile
 
 
 ## CONSTANTS
-KINGDOM = {"bacillati", "fusobacteriati", "mycoplasmatota", "pseudomonadati", "thermotogati"}
-PHYLUM  = {"bacillota", "acidobacteriota", "actinomycetota", "campylobacterota", "cyanobacteriota",
-           "deinococcota", "fcb_group", "mycoplasmatota", "myxococcota", "pseudomonadota",
-           "pvc_group", "spirochaetota", "thermodesulfobacteriota", "thermotogota"}
 KO_RE = re.compile(r'^K\d{5}$')
+
+COUNTS_PREFIX = "ko_freq_ko_matrix_sampleids_"
+GRAPH_PREFIX  = "Module_AllHop_Refilled_"
+RANKS = ("domain", "kingdom", "phylum")
+
+
+def available_priors(counts_dir: Path, module_neighbor_dir: Path):
+    """Map canonical taxon name -> (tag, rank, counts file, neighbour graph file).
+
+    Built from the files present, not from a hardcoded list.  The lists this
+    replaced had drifted from the data three ways: they named "cyanobacteriota"
+    while the file is "cyanobacteriota_melainabacteria_group", they omitted
+    "fusobacteriota", and they filed "mycoplasmatota" as a kingdom when the
+    -ota suffix makes it a phylum.  Discovery keeps the accepted names in step
+    with what is installed.
+
+    Match the filename pattern rather than listing the directory.  A README.md
+    sits in both directories and would otherwise be offered as a taxon.
+    """
+    found = {}
+    for counts_file in sorted(counts_dir.glob(f"{COUNTS_PREFIX}*.tsv")):
+        tag = counts_file.name[len(COUNTS_PREFIX):-len(".tsv")]
+        graph_file = module_neighbor_dir / f"{GRAPH_PREFIX}{tag}.json"
+        if not graph_file.exists():
+            continue
+        if tag == "domain_level_priors":
+            # The rank is domain, the taxon is Bacteria.  Naming it "domain"
+            # would put a rank label among taxon names.
+            name, rank = "bacteria", "domain"
+        else:
+            match = re.search(r"_(phylum|kingdom)_level_priors$", tag)
+            if not match:
+                continue
+            rank = match.group(1)
+            name = tag[:match.start()]
+        found[name] = (tag, rank, counts_file, graph_file)
+    return found
+
+
+def describe_priors(available: dict, indent: str = "           ") -> str:
+    """List the taxa grouped by rank.
+
+    Rank separates the confusable pairs: bacillati is a kingdom and bacillota a
+    phylum, and the same one-letter difference splits fusobacteriati from
+    fusobacteriota, pseudomonadati from pseudomonadota, and thermotogati from
+    thermotogota.  A flat list sets them side by side with no way to tell which
+    is which.
+    """
+    lines = []
+    for rank in RANKS:
+        names = sorted(n for n, (_tag, r, _c, _g) in available.items() if r == rank)
+        if names:
+            lines.append(f"{indent}{rank + ':':9}{', '.join(names)}")
+    return "\n".join(lines)
+
+
+def resolve_taxonomy(taxonomy: str, available: dict) -> str:
+    """Turn what the user typed into one of the canonical names.
+
+    Accepts a canonical name, or a taxon name that exactly one canonical name
+    extends with a clade qualifier: "cyanobacteriota" reaches
+    "cyanobacteriota_melainabacteria_group", and "fcb" reaches "fcb_group".
+    The match must break on an underscore, so "cyano" and "bacillat" are
+    refused.
+
+    An unrecognized name causes an error.  It used to select domain-level
+    priors silently, so a typo produced plausible output from the wrong priors
+    with nothing in the log to say so.
+    """
+    val = (taxonomy or "").strip().lower()
+    if val in ("", "bacteria", "domain"):
+        return "bacteria"
+    if val in available:
+        return val
+
+    hits = sorted(name for name in available if name.startswith(val + "_"))
+    if len(hits) == 1:
+        return hits[0]
+    if len(hits) > 1:
+        detail = " and ".join(f"{n} ({available[n][1]})" for n in hits)
+        raise SystemExit(
+            f"[taxonomy] '{taxonomy}' is ambiguous between {detail}.\n"
+            f"           Give the full name."
+        )
+    # A truncation such as "fusobacteri" is not a taxon, but it is one letter
+    # from two of them that differ only by rank.  Point at those rather than
+    # reprinting all twenty names.
+    near = sorted(name for name in available if name.startswith(val))
+    if near:
+        detail = ", ".join(f"{n} ({available[n][1]})" for n in near)
+        raise SystemExit(
+            f"[taxonomy] '{taxonomy}' is an unrecognized taxonomic group.\n"
+            f"           Closest: {detail}"
+        )
+    raise SystemExit(
+        f"[taxonomy] '{taxonomy}' is an unrecognized taxonomic group.\n"
+        f"{describe_priors(available)}"
+    )
 
 ## Configurations
 @dataclass(frozen=True)
 class Paths:
     counts_dir: Path
-    onehop_dir: Path
-    twohop_dir: Path
     module_neighbor_dir: Path
     module_eq_json: Path
     module_json_dir: Path
@@ -308,24 +400,27 @@ class File_Helpers:
     
     @staticmethod
     def lineage_paths(taxonomy: str, paths: Paths):
-        val = (taxonomy or "").strip().lower()
-        if val in PHYLUM: level, name = "phylum", val
-        elif val in KINGDOM: level, name = "kingdom", val
-        else: level, name = "domain", "bacteria"
-        tag = "domain_level_priors" if level == "domain" else f"{name}_{level}_level_priors"
-        want_counts = paths.counts_dir / f"ko_freq_ko_matrix_sampleids_{tag}.tsv"
-        want_one    = paths.onehop_dir  / f"One_Hop_Refilled_{tag}.json"
-        want_two    = paths.twohop_dir  / f"Two_Hop_Refilled_{tag}.json"
-        want_all = paths.module_neighbor_dir / f"Module_AllHop_Refilled_{tag}.json"
-        if not (want_counts.exists() and want_one.exists() and want_two.exists()):
-            if tag != "domain_level_priors":
-                print(f"[taxonomy] Using domain-level fallbacks for '{tag}'.", file=sys.stderr)
-            tag = "domain_level_priors"
-            want_counts = paths.counts_dir / f"ko_freq_ko_matrix_sampleids_{tag}.tsv"
-            want_one    = paths.onehop_dir  / f"One_Hop_Refilled_{tag}.json"
-            want_two    = paths.twohop_dir  / f"Two_Hop_Refilled_{tag}.json"
-            want_all = paths.module_neighbor_dir / f"Module_AllHop_Refilled_{tag}.json"
-        return want_counts, want_one, want_two, want_all, tag
+        """Resolve --taxonomy to the counts table and neighbour graph to use.
+
+        This used to require One_Hop_Refilled_*.json and
+        Two_Hop_Refilled_*.json under ONE_HOP_NEIGHBOR_DATA and
+        TWO_HOP_NEIGHBOR_DATA.  Neither directory is present, and it looks like
+        neither was ever part of the code, so the check failed for every
+        taxonomy including the domain-level one and every run fell back to
+        domain priors.  The two paths were returned and never read, so nothing
+        failed and --taxonomy did nothing.  Check only the files the code
+        reads.
+        """
+        available = available_priors(paths.counts_dir, paths.module_neighbor_dir)
+        if not available:
+            raise SystemExit(
+                "[taxonomy] No prior sets found. The installed package is missing "
+                "Data_Dependencies/ATB_Taxonomy_Frequency or "
+                "Graph_Dependencies/MODULE_ALL_NEIGHBOR_DATA."
+            )
+        name = resolve_taxonomy(taxonomy, available)
+        tag, _rank, counts_file, graph_file = available[name]
+        return counts_file, graph_file, tag
     
     @staticmethod
     def modules_to_kos(module_json_dir):
@@ -2011,8 +2106,11 @@ class BlimmpPipeline:
             raise ValueError("--sigma must be between 0 and 1")
         
         # taxonomy-driven paths
-        counts_tsv, onehop_json, twohop_json, all_neighbor_json, tag = File_Helpers.lineage_paths(self.cfg.taxonomy, self.paths)
-        logging.info(f"Taxonomic level chosen: {self.cfg.taxonomy}")
+        counts_tsv, all_neighbor_json, tag = File_Helpers.lineage_paths(self.cfg.taxonomy, self.paths)
+        # Report the priors in use, not the string the user typed.  These used
+        # to disagree: asking for cyanobacteriota logged "cyanobacteriota"
+        # while loading the domain file.
+        logging.info(f"Taxonomic priors in use: {tag}")
 
         ko_occ = File_Helpers.read_ko_occurrence(str(counts_tsv))
         if self.cfg.verbose:
@@ -2322,6 +2420,14 @@ def validate_paths(paths: "Paths") -> None:
 
 
 def main():
+    # Discovered before the parser is built so --help lists what is installed.
+    # Two globs, no extraction.
+    _here = os.path.dirname(os.path.abspath(__file__))
+    _priors = available_priors(
+        Path(_here) / "Data_Dependencies" / "ATB_Taxonomy_Frequency",
+        Path(_here) / "Graph_Dependencies" / "MODULE_ALL_NEIGHBOR_DATA",
+    )
+
     p = argparse.ArgumentParser(
     description='BLIMMP: Bayesian Likelihood Inference of Metabolic Module Presence. '
                 'Evaluates KEGG module completeness from HMM search results.',
@@ -2334,9 +2440,13 @@ def main():
     p.add_argument('file',help='Path to the HMMER .tblout or .domtblout file')
     p.add_argument('-f', '--format',choices=['domtblout'], required=True,help='Input file format: "domtblout" for --domtblout')
     p.add_argument('-s', '--sigma',type=float, required=True,help='Genome completeness estimate (0.0-1.0). Use 1.0 if unknown or for complete genomes')
-    p.add_argument('-t', '--taxonomy',default="bacteria", metavar="NAME",
-        help='Taxonomic group for priors (default: bacteria). '
-            'Options include phylum names like "cyanobacteriota" or kingdom names like "pseudomonadati"')
+    p.add_argument('-t', '--taxonomy', default="bacteria", metavar="NAME",
+        help='Taxon whose priors to use (default: bacteria, the whole domain). '
+             'Names may be shortened where that is unambiguous, so '
+             '"cyanobacteriota" selects cyanobacteriota_melainabacteria_group. '
+             'Available:\n'
+             + describe_priors(_priors, indent='  ')
+             + '\nRank suffixes: -ati is a kingdom, -ota a phylum.')
     p.add_argument('-o', '--output',
         required=True, metavar="PREFIX",
         help='Output prefix for result files (e.g., "results/Genomename_Result")')
@@ -2391,8 +2501,6 @@ def main():
 
     paths = Paths(
         counts_dir = Path(DD)/ "ATB_Taxonomy_Frequency",
-        onehop_dir = Path(GD)/ "ONE_HOP_NEIGHBOR_DATA",
-        twohop_dir = Path(GD)/ "TWO_HOP_NEIGHBOR_DATA",
         module_neighbor_dir   = Path(GD)/ "MODULE_ALL_NEIGHBOR_DATA",
         module_eq_json = Path(GD)/ "KEGG_Module_Equations_Jan26.json",
         module_json_dir = ensure_module_graphs(GD),

@@ -42,3 +42,9 @@ jobs:
       # 9-genome run.
       - name: Concurrent extraction
         run: docker run --rm blimmp:ci python /app/tests/concurrency_test.py
+
+      # --taxonomy was a no-op: every run fell back to domain priors, so four
+      # runs differing only in -t produced byte identical output. This asserts
+      # the results differ.
+      - name: Taxonomy priors
+        run: docker run --rm blimmp:ci python /app/tests/taxonomy_test.py
